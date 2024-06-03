@@ -19,14 +19,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `starbook_databse`
+-- Cơ sở dữ liệu: `
+`
 --
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `admin`
---
+
 
 CREATE TABLE `admin` (
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
