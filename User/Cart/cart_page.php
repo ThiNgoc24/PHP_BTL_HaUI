@@ -41,6 +41,18 @@
             exit;
         }
     }
+
+    if(isset($_POST['continue_shopping'])){
+        header('Location: home_page.php');//phát triển sau
+        exit;
+    }
+
+    if(isset($_POST['order_cart'])){
+        header('Location: ../Order/order_form.php');
+        exit;
+    }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,6 +121,9 @@
             </table>
             
             <div class="footer_button">
+                <form method="post">
+                    <button type="submit" name="continue_shopping">Tiếp tục mua hàng</button>
+                </form>
                 <form method="post">
                     <button type="submit" name="clear_cart" onclick="return confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?');">Xóa tất cả</button>
                 </form>

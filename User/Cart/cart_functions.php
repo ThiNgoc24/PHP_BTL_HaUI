@@ -1,5 +1,5 @@
 <?php
-    include "../conn_db.php"; //Thiết lập đường dẫn tương đối
+    include_once "../../conn_db.php"; //Thiết lập đường dẫn tương đối
     function getCartItems($memberID){
         $sql = "SELECT * FROM `cart` WHERE `member_id` = '{$memberID}'";
         return queryDatabase($sql);
