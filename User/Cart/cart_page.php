@@ -60,27 +60,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        td, th{
-            padding: 20px;
-        }
-
-        .main_content{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer_button{
-            display: flex;
-            justify-content: center;
-        }
-        .footer_button button{
-            margin: 20px;
-            padding: 5px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="cart_page.css">
 </head>
 <body>
     <div class="main_content">
@@ -100,7 +80,7 @@
                 <?php foreach ($cartItems as $item): ?>
                 <tr>
                     <td><?php echo $item['product_name']; ?></td>
-                    <td><?php echo $item['product_image']; ?></td>
+                    <td><img src="./images/<?php echo $item['product_image']; ?>" alt="<?php echo $item['product_name']; ?>"></td>
                     <td><?php echo $item['product_price']; ?></td>
                     <td>
                         <form method="post">

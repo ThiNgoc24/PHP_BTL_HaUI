@@ -1,29 +1,27 @@
 <?php
     include_once "../../conn_db.php";
+    include_once "../Cart/cart_functions.php";
+
     function getOrderMethod(){
         $sql = "SELECT * FROM order_methods";
         return queryDatabase($sql);
     }
 
-    function orderSuccess($memberID, $receiver, $address, $phone, $email, $note, $order_method){
-        // Nếu thanh toán thành công, thực hiện cập nhật cơ sở dữ liệu
-        if ($paymentSuccess) {
-            $orderId = insertOrder($memberID, $receiver, $address, $phone, $email, $note, $order_method);
-            insertOrderDetails($orderID, $memberID);
-
-            // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
-            clearCart($memberID);
-            return true;
-        } else {
-            return false;
-        }
+    function orderSuccess($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method){
+        insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method);
+        insertOrderDetails($orderID, $memberID);
+        // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
+        clearCart($memberID);
     }
 
-    function insertOrder($memberID, $receiver, $address, $phone, $email, $note, $order_method) {
-        $sql = "INSERT INTO orders (member_id, order_method_id, receiver, address, phone, email, note) 
-                VALUES ($memberID, $order_method, $receiver, $address,  $phone, $email, $note)";
-        executeQuery($sql); 
-        return getLastInsertedId(); // Lấy ID của đơn hàng vừa được thêm vào
+    function insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method) {
+        $sql = "INSERT INTO orders (id, member_id, order_method_id, receiver, address, phone, email, note) 
+                VALUES ($orderID, '$memberID', '$order_method', '$receiver', '$address',  '$phone', '$email', '$note')";
+        if(executeQuery($sql)){
+            echo "Save order successfully";
+        }else{
+            echo "Can not save order";
+        }
     }
     
     function insertOrderDetails($orderID, $memberID) {
@@ -33,10 +31,13 @@
             $quantity = $item['quantity'];
             $price = $item['product_price'];
             $sql = "INSERT INTO order_detail (productId, orderId, quantity, price) 
-                    VALUES ($productId, $orderID, $quantity, $price)";
-            executeQuery($sql);
+                    VALUES ('$productId', '$orderID', $quantity, $price)";
+            if(executeQuery($sql)){
+                echo "Save order detail successfully";
+            }else{
+                echo "Can not save order detail";
+            }
         }
     }
-
     
 ?>
