@@ -1,0 +1,194 @@
+<?php
+include '../../conn_db.php'; // Kết nối cơ sở dữ liệu
+
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : null;
+$article_id = isset($_GET['article_id']) ? intval($_GET['article_id']) : null;
+
+if ($category_id) {
+    $sql = "SELECT id, name FROM articles WHERE article_cat_id = $category_id AND status = 1";
+    $articles = queryDatabase($sql); // Sử dụng hàm queryDatabase để lấy dữ liệu
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Articles</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2 {
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            li {
+                margin-bottom: 10px;
+            }
+            li a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                background-color: #f0f0f0;
+                color: #333;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+            li a:hover {
+                background-color: #e0e0e0;
+            }
+            .article {
+                background-color: #fff;
+                padding: 20px;
+                margin-top: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            .article img {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+            .article iframe {
+                width: 100%;
+                height: 315px; /* Chỉnh chiều cao phù hợp cho iframe của YouTube */
+                margin-bottom: 10px;
+            }
+            .article audio {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .back-link {
+                display: inline-block;
+                margin-top: 10px;
+                color: #007bff;
+                text-decoration: none;
+            }
+            .back-link:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Articles in Selected Category</h1>
+            <ul>
+                <?php
+                if (!empty($articles)) {
+                    foreach ($articles as $row) {
+                        echo "<li><a href='articles.php?article_id=" . $row['id'] . "'>" . $row['name'] . "</a></li>";
+                    }
+                } else {
+                    echo "<li>No articles found in this category.</li>";
+                }
+                ?>
+            </ul>
+            <a class="back-link" href="categories.php">Back to Categories</a>
+        </div>
+    </body>
+    </html>
+    <?php
+}
+
+if ($article_id) {
+    $sql = "SELECT * FROM articles WHERE id = $article_id AND status = 1";
+    $article = queryDatabase($sql); // Sử dụng hàm queryDatabase để lấy dữ liệu
+
+    if (!empty($article)) {
+        $article = $article[0];
+        ?>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title><?php echo $article['name']; ?></title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    max-width: 800px;
+                    margin: 20px auto;
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                }
+                h1, h2 {
+                    font-size: 24px;
+                    color: #333;
+                    margin-bottom: 20px;
+                }
+                .article {
+                    background-color: #fff;
+                    padding: 20px;
+                    margin-top: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                }
+                .article img {
+                    max-width: 100%;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+                .article iframe {
+                    width: 100%;
+                    height: 315px; /* Chỉnh chiều cao phù hợp cho iframe của YouTube */
+                    margin-bottom: 10px;
+                }
+                .article audio {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                .back-link {
+                    display: inline-block;
+                    margin-top: 10px;
+                    color: #007bff;
+                    text-decoration: none;
+                }
+                .back-link:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="article">
+                    <h2><?php echo $article['name']; ?></h2>
+                    <p><?php echo $article['content']; ?></p>
+                    <p><img src="<?php echo $article['image']; ?>" alt="<?php echo $article['name']; ?>"></p>
+                    <p>Created on: <?php echo $article['create_date']; ?></p>
+                    <?php if ($article['youtube']) { ?>
+                        <p><iframe src="https://www.youtube.com/embed/<?php echo $article['youtube']; ?>"></iframe></p>
+                    <?php } ?>
+                    <?php if ($article['audio']) { ?>
+                        <p><audio controls src="<?php echo $article['audio']; ?>"></audio></p>
+                    <?php } ?>
+                    <a class="back-link" href="articles.php?category_id=<?php echo $article['article_cat_id']; ?>">Back to Articles</a>
+                </div>
+            </div>
+        </body>
+        </html>
+        <?php
+    } else {
+        echo "Article not found.";
+    }
+}
+?>

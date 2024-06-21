@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../../conn_db.php';
 
 function resetAutoIncrement() {
     $conn = connectToDatabase();

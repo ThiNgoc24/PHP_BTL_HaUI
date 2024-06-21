@@ -12,7 +12,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            margin: 6% 0;
+            margin: 4% 0;
             /* align-items: center; */
             height: 50vh;
         }
@@ -22,6 +22,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
+            height: 300px;
         }
         h2 {
             text-align: center;
@@ -67,7 +68,7 @@
     <div class="container">
         <h2>Sửa Danh mục Bài viết</h2>
         <?php
-        include '../conn_db.php';
+        include '../../conn_db.php';
 
         $id = $_GET['id'];
         $sql = "SELECT * FROM article_categories WHERE id='$id'";

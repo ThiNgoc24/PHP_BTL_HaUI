@@ -14,11 +14,11 @@
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Show_category/style.css">
 </head>
 <body>
     <h2>Quản lý Danh mục Sản phẩm</h2>
-    <a href="add_category.php">Thêm mới danh mục</a>
+    <a href="add_article_category.php">Thêm mới danh mục</a>
     <br><br>
     <table>
         <tr>
@@ -29,10 +29,10 @@
         </tr>
         <?php
         // Kết nối đến cơ sở dữ liệu
-        include '../conn_db.php';
+        include '../../conn_db.php';
 
         // Truy vấn danh sách danh mục
-        $sql = "SELECT id, name, status FROM categories";
+        $sql = "SELECT id, name, status FROM article_categories";
         $result = queryDatabase($sql); // Sử dụng hàm queryDatabase từ conn_db.php
 
         if (!empty($result)) {
@@ -42,8 +42,8 @@
                         <td>".$row["name"]."</td>
                         <td>".$row["status"]."</td>
                         <td>
-                            <a href='edit_category.php?id=".$row["id"]."'>Edit</a> | 
-                            <a href='delete_category.php?id=".$row["id"]."'>Delete</a>
+                            <a href='edit_article_category.php?id=".$row["id"]."'>Edit</a> | 
+                            <a href='delete_article_category.php?id=".$row["id"]."'>Delete</a>
                         </td>
                       </tr>";
             }
