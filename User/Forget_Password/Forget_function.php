@@ -1,10 +1,13 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 function guiMKmoi($email, $new_password) {
-    require "PHPMailer-master/src/PHPMailer.php"; 
-    require "PHPMailer-master/src/SMTP.php"; 
+    require 'PHPMailer-master/src/PHPMailer.php'; 
+    require 'PHPMailer-master/src/SMTP.php'; 
     require 'PHPMailer-master/src/Exception.php'; 
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true); // true: enables exceptions
+    $mail = new PHPMailer(true); // true: enables exceptions
 
     try {
         $mail->SMTPDebug = 2; // 0: no debug output, 2: detailed debug output

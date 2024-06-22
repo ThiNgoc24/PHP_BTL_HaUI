@@ -14,11 +14,11 @@
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Show_category/style.css">
 </head>
 <body>
-    <h2>Quản lý Danh mục Sản phẩm</h2>
-    <a href="add_category.php">Thêm mới danh mục</a>
+    <h2>Quản lý Danh mục Bài viết</h2>
+    <a href="add_article_category.php">Thêm mới danh mục bài viết</a>
     <br><br>
     <table>
         <tr>
@@ -28,12 +28,10 @@
             <th>Actions</th>
         </tr>
         <?php
-        // Kết nối đến cơ sở dữ liệu
         include '../../conn_db.php';
+        include 'Article_category_data.php';
 
-        // Truy vấn danh sách danh mục
-        $sql = "SELECT id, name, status FROM categories";
-        $result = queryDatabase($sql); // Sử dụng hàm queryDatabase từ conn_db.php
+        $result = getAllCategories(); // Sử dụng hàm getAllCategories từ Article_category_data.php
 
         if (!empty($result)) {
             foreach ($result as $row) {
@@ -42,8 +40,8 @@
                         <td>".$row["name"]."</td>
                         <td>".$row["status"]."</td>
                         <td>
-                            <a href='edit_category.php?id=".$row["id"]."'>Edit</a> | 
-                            <a href='delete_category.php?id=".$row["id"]."'>Delete</a>
+                            <a href='edit_article_category.php?id=".$row["id"]."'>Edit</a> | 
+                            <a href='delete_article_category.php?id=".$row["id"]."'>Delete</a>
                         </td>
                       </tr>";
             }

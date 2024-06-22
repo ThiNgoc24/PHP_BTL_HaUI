@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sửa Danh mục</title>
+    <title>Sửa Danh mục Bài viết</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            margin: 6% 0;
+            margin: 4% 0;
             /* align-items: center; */
             height: 50vh;
         }
@@ -66,17 +66,17 @@
 </head>
 <body>
     <div class="container">
-        <h2>Sửa Danh mục</h2>
+        <h2>Sửa Danh mục Bài viết</h2>
         <?php
         include '../../conn_db.php';
+        include 'Article_category_data.php';
 
         $id = $_GET['id'];
-        $sql = "SELECT * FROM categories WHERE id='$id'";
-        $result = queryDatabase($sql);
+        $result = getCategoryById($id);
 
         if (!empty($result)) {
             $row = $result[0];
-            echo "<form action='Show_category_function.php' method='POST'>
+            echo "<form action='Article_category_business.php' method='POST'>
                     <input type='hidden' name='action' value='edit'>
                     <input type='hidden' name='id' value='".$row['id']."'>
                     <label for='name'>Tên danh mục:</label>
@@ -86,7 +86,7 @@
                     <input type='submit' value='Cập nhật'>
                   </form>";
         } else {
-            echo "Không tìm thấy danh mục. <a href='Show_category_page.php'>Quay lại trang quản lý</a>";
+            echo "Không tìm thấy danh mục. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
         }
         ?>
     </div>

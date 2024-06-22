@@ -1,8 +1,6 @@
 <?php
-include '../../conn_db.php'; // Kết nối cơ sở dữ liệu
-
-$sql = "SELECT id, name FROM article_categories WHERE status = 1";
-$categories = queryDatabase($sql); // Sử dụng hàm queryDatabase để lấy dữ liệu
+include 'categories_bll.php';
+$categories = getCategories();
 ?>
 
 <!DOCTYPE html>

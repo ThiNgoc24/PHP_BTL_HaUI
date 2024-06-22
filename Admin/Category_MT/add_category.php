@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Danh mục</title>
+    <title>Thêm Danh mục Sản phẩm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,16 +74,17 @@
 </head>
 <body>
     <div class="container">
-        <h2>Thêm Danh mục Mới</h2>
-        <form action="Show_category_function.php" method="POST" onsubmit="return validateForm()">
+        <h2>Thêm Danh mục Sản phẩm mới</h2>
+        <form action="Category_business.php" method="POST" onsubmit="return validateForm()">
             <input type="hidden" name="action" value="add">
-            <label for="name">Tên danh mục:</label>
+            <label for="name">Tên danh mục sản phẩm:</label>
             <input type="text" id="name" name="name" required>
             <br>
             <label for="status">Trạng thái:</label>
             <input type="text" id="status" name="status" required>
             <br>
             <input type="submit" value="Thêm">
+            <a href="Category_page.php">Quay lại trang quản lý</a>
         </form>
     </div>
 </body>

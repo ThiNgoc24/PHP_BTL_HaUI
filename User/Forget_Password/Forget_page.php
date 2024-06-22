@@ -2,38 +2,13 @@
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include the database connection file
-    include '../../conn_db.php'; // Adjust the path as needed
+    include 'Forget_business.php'; // Bao gồm file Forget_business.php
 
     // Get the email from the form
     $email = $_POST['email'];
 
-    // Prepare the SQL query to check if the email exists
-    $sql = "SELECT * FROM member WHERE email = '$email'";
-
-    // Execute the query
-    $result = queryDatabase($sql); // This function should be defined in your database connection file
-
-    // Check if the email was found
-    if (!empty($result)) {
-        // Generate a new password
-        $new_password = substr(md5(rand(0,999999)), 0, 8);
-        $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-
-        // Prepare the SQL query to update the password
-        $update_sql = "UPDATE member SET password = '$hashed_password' WHERE email = '$email'";
-
-        // Execute the update query
-        if (executeQuery($update_sql)) { // Assuming executeQuery() is defined in your database connection file
-            include 'forget_function.php';
-            guiMKmoi($email, $new_password);
-            $message = "<p class='success'>Mật khẩu mới của bạn là: $new_password</p>";
-        } else {
-            $message = "<p class='warning'>Cập nhật mật khẩu thất bại. Vui lòng thử lại.</p>";
-        }
-    } else {
-        $message = "<p class='warning'>Email chưa tồn tại trong hệ thống, vui lòng đăng ký nó.</p>";
-    }
+    // Call the function to process password reset
+    $message = processPasswordReset($email);
 }
 ?>
 

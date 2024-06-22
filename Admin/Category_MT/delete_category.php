@@ -1,18 +1,10 @@
 <?php
 include '../../conn_db.php';
-
-function resetAutoIncrement() {
-    $conn = connectToDatabase();
-    $conn->query("SET @count = 0");
-    $conn->query("UPDATE categories SET id = @count:= @count + 1");
-    $conn->query("ALTER TABLE categories AUTO_INCREMENT = 1");
-    $conn->close();
-}
+include 'Category_data.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM categories WHERE id='$id'";
-    $result = queryDatabase($sql);
+    $result = getCategoryById($id);
 
     if (!empty($result)) {
         $category = $result[0]; // Lấy thông tin danh mục cần xóa
@@ -21,7 +13,7 @@ if (isset($_GET['id'])) {
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title>Xác nhận Xóa Danh mục</title>
+            <title>Xác nhận Xóa Danh mục Sản phẩm </title>
             <style>
                 body {
                     font-family: Arial, sans-serif;
@@ -71,9 +63,9 @@ if (isset($_GET['id'])) {
             </style>
             <script>
                 function confirmDelete() {
-                    var confirmDelete = confirm("Bạn chắc chắn muốn xóa danh mục này?\nThông tin danh mục:\nTên: <?php echo $category['name']; ?>\nTrạng thái: <?php echo $category['status']; ?>");
+                    var confirmDelete = confirm("Bạn chắc chắn muốn xóa danh mục sản phẩm này?\nThông tin danh mục sản phẩm:\nTên: <?php echo $category['name']; ?>\nTrạng thái: <?php echo $category['status']; ?>");
                     if (confirmDelete) {
-                        window.location.href = 'delete_category.php?id=<?php echo $id; ?>&confirm=true';
+                        window.location.href = 'Category_business.php?action=delete&id=<?php echo $id; ?>';
                     } else {
                         // Không làm gì nếu người dùng hủy bỏ
                     }
@@ -82,38 +74,23 @@ if (isset($_GET['id'])) {
         </head>
         <body>
             <div class="container">
-                <h2>Xác nhận Xóa Danh mục</h2>
-                <p>Bạn chắc chắn muốn xóa danh mục này?</p>
+                <h2>Xác nhận Xóa Danh mục Sản phẩm</h2>
+                <p>Bạn chắc chắn muốn xóa danh mục sản phẩm này?</p>
                 <p><strong>Thông tin danh mục:</strong></p>
                 <p><strong>Tên:</strong> <?php echo $category['name']; ?></p>
                 <p><strong>Trạng thái:</strong> <?php echo $category['status']; ?></p>
                 <div class="btn-group">
                     <button onclick="confirmDelete()">Xóa Danh mục</button>
-                    <a href="Show_category_page.php">Quay lại trang quản lý</a>
+                    <a href="Category_page.php">Quay lại trang quản lý</a>
                 </div>
             </div>
         </body>
         </html>
         <?php
     } else {
-        echo "Không tìm thấy danh mục để xóa. <a href='Show_category_page.php'>Quay lại trang quản lý</a>";
+        echo "Không tìm thấy danh mục để xóa. <a href='Category_page.php'>Quay lại trang quản lý</a>";
     }
 } else {
-    echo "ID danh mục không hợp lệ. <a href='Show_category_page.php'>Quay lại trang quản lý</a>";
-}
-
-if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
-    // Xử lý xóa danh mục sau khi người dùng xác nhận
-    $id = $_GET['id'];
-    $sql = "DELETE FROM categories WHERE id='$id'";
-    $result = executeQuery($sql);
-
-    if ($result) {
-        resetAutoIncrement();
-        echo "<script>alert('Xóa danh mục thành công.'); window.location.href = 'Show_category_page.php';</script>";
-        exit;
-    } else {
-        echo "<script>alert('Có lỗi xảy ra khi xóa danh mục.');</script>";
-    }
+    echo "ID danh mục không hợp lệ. <a href='Category_page.php'>Quay lại trang quản lý</a>";
 }
 ?>

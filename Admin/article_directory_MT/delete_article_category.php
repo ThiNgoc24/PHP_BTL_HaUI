@@ -1,18 +1,10 @@
 <?php
 include '../../conn_db.php';
-
-function resetAutoIncrement() {
-    $conn = connectToDatabase();
-    $conn->query("SET @count = 0");
-    $conn->query("UPDATE article_categories SET id = @count:= @count + 1");
-    $conn->query("ALTER TABLE article_categories AUTO_INCREMENT = 1");
-    $conn->close();
-}
+include 'Article_category_data.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM article_categories WHERE id='$id'";
-    $result = queryDatabase($sql);
+    $result = getCategoryById($id);
 
     if (!empty($result)) {
         $category = $result[0]; // Lấy thông tin danh mục cần xóa
@@ -73,7 +65,7 @@ if (isset($_GET['id'])) {
                 function confirmDelete() {
                     var confirmDelete = confirm("Bạn chắc chắn muốn xóa danh mục bài viết này?\nThông tin danh mục bài viết:\nTên: <?php echo $category['name']; ?>\nTrạng thái: <?php echo $category['status']; ?>");
                     if (confirmDelete) {
-                        window.location.href = 'delete_article_category.php?id=<?php echo $id; ?>&confirm=true';
+                        window.location.href = 'Article_category_business.php?action=delete&id=<?php echo $id; ?>';
                     } else {
                         // Không làm gì nếu người dùng hủy bỏ
                     }
@@ -100,20 +92,5 @@ if (isset($_GET['id'])) {
     }
 } else {
     echo "ID danh mục không hợp lệ. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
-}
-
-if (isset($_GET['confirm']) && $_GET['confirm'] === 'true') {
-    // Xử lý xóa danh mục sau khi người dùng xác nhận
-    $id = $_GET['id'];
-    $sql = "DELETE FROM article_categories WHERE id='$id'";
-    $result = executeQuery($sql);
-
-    if ($result) {
-        resetAutoIncrement();
-        echo "<script>alert('Xóa danh mục thành công.'); window.location.href = 'Article_category_page.php';</script>";
-        exit;
-    } else {
-        echo "<script>alert('Có lỗi xảy ra khi xóa danh mục.');</script>";
-    }
 }
 ?>

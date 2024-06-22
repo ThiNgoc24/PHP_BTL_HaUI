@@ -75,7 +75,7 @@
 <body>
     <div class="container">
         <h2>Thêm Danh mục Bài viết mới</h2>
-        <form action="Article_category_function.php" method="POST" onsubmit="return validateForm()">
+        <form action="Article_category_business.php" method="POST" onsubmit="return validateForm()">
             <input type="hidden" name="action" value="add">
             <label for="name">Tên danh mục bài viết:</label>
             <input type="text" id="name" name="name" required>

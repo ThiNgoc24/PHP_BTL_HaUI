@@ -1,6 +1,6 @@
 <?php
     function connectToDatabase(){
-        $servername = 'localhost';
+        $servername = 'localhost:5307';
         $username = 'root';
         $password = '';
         $name_db = 'starbook_databse';
