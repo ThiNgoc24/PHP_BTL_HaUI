@@ -149,7 +149,7 @@ if ($article_id) {
                 <div class="article">
                     <h2><?php echo $article['name']; ?></h2>
                     <p><?php echo $article['content']; ?></p>
-                    <p><img src="<?php echo $article['image']; ?>" alt="<?php echo $article['name']; ?>"></p>
+                    <p><img src="../../images/<?php echo $article['image']; ?>" alt="<?php echo $article['name']; ?>"></p>
                     <p>Created on: <?php echo $article['create_date']; ?></p>
                     <?php if ($article['youtube']) { ?>
                         <p><iframe src="https://www.youtube.com/embed/<?php echo $article['youtube']; ?>"></iframe></p>
