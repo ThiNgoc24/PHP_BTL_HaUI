@@ -59,7 +59,7 @@
         }
         .sidebar {
             width: 220px;
-            min-height: 100vh;
+            height: 100vh;
             background-color: #f0f0f0;
             float: left;
             padding: 20px;
@@ -131,7 +131,7 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
         <div class="header_img">
             <img src="../../images/header1.jpg" alt="">
         </div>
@@ -155,9 +155,8 @@
             <li><a href="#">Bảo trì tác giả</a></li>
             <li><a href="#">Bảo trì sản phẩm</a></li>
             <li><a href="../MANAGE_ARTICLES/Manage_articles_page.php">Bảo trì bài viết</a></li>
-            <li><a href="#">Quản lý đơn hàng</a></li>
+            <li><a href="../Manage_orders/order_categories.php">Quản lý đơn hàng</a></li>
             <li><a href="#">Quản lý tài khoản</a></li>
-            <!-- Thêm các mục menu khác cần thiết -->
         </ul>
     </div>
 </body>

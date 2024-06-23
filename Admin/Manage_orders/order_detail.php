@@ -27,35 +27,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết đơn hàng</title>
     <style>
-         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+        .container {
+            width: 75%;
+            margin-left: 220px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-        }
+
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
         }
-        .infor, .product_list {
-            margin-bottom: 20px;
+
+        .infors{
+            display: flex;
+        }
+
+        .infors .infor{
+            padding-left: 10px;
+            padding-right: 10px;
         }
         .infor table, .product_list table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            max-height: 10vh; /* height max của bảng. Nếu bảng lớn hơn thì hiển thị scoll */
         }
         .infor th, .infor td, .product_list th, .product_list td {
             padding: 15px;
@@ -65,9 +64,6 @@
         .infor th, .product_list th {
             background-color: #007bff;
             color: white;
-        }
-        .orderType {
-            margin-bottom: 20px;
         }
         .status {
             margin-bottom: 20px;
@@ -100,12 +96,6 @@
         #btnUpdate:hover {
             background-color: #218838;
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
 
         .list_products_detail td img{
             width: 100px; 
@@ -116,64 +106,66 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <div class="header">
             <h2>Chi tiết đơn hàng</h2>
-            <a href="list_orders.php?orderType=<?php echo $order['status'];?>" class="btnQuayLai">Quay lại</a>
         </div>
-        <div class="infor">
-            <table>
-                <thead>
-                    <tr><th colspan="2">Thông tin người đặt hàng:</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Họ tên:</td>
-                        <td><?= $order['fullname'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Điện thoại:</td>
-                        <td><?= $order['member_phone'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td><?= $order['member_address'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><?= $order['member_email'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Note:</td>
-                        <td><?= $order['note'] ?></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="infor">
-            <table>
-                <thead>
-                    <tr><th colspan="2">Thông tin người nhận hàng:</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Họ tên:</td>
-                        <td><?= $order['receiver'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Điện thoại:</td>
-                        <td><?= $order['phone'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td><?= $order['address'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><?= $order['email'] ?></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="infors">
+            <div class="infor">
+                <table>
+                    <thead>
+                        <tr><th colspan="2">Thông tin người đặt hàng:</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Họ tên:</td>
+                            <td><?= $order['fullname'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại:</td>
+                            <td><?= $order['member_phone'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td><?= $order['member_address'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><?= $order['member_email'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Note:</td>
+                            <td><?= $order['note'] ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="infor">
+                <table>
+                    <thead>
+                        <tr><th colspan="2">Thông tin người nhận hàng:</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Họ tên:</td>
+                            <td><?= $order['receiver'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại:</td>
+                            <td><?= $order['phone'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td><?= $order['address'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><?= $order['email'] ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="orderType">
             <p><b>Phương thức thanh toán:</b> <span><?= $order['order_method_name'] ?></span></p>
@@ -218,8 +210,12 @@
                     <option value="4" <?= $statusOrderOld == 4 ? 'selected' : '' ?>>Huỷ</option>
                 </select>
             </div>
-            <input type="submit" name="btnUpdate" id="btnUpdate" value="Cập nhật trạng thái đơn hàng">
+            <div class="btns">
+                <a href="list_orders.php?orderType=<?php echo $order['status'];?>" class="btnQuayLai">Quay lại</a>
+                <input type="submit" name="btnUpdate" id="btnUpdate" value="Cập nhật trạng thái đơn hàng">
+            </div>
         </form>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

@@ -8,23 +8,31 @@
         $data = queryDatabase($sql);
     }
 ?>
-<style>
-          body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách đơn hàng</title>
+    <style>
+        /* body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
+        } */
         .container {
-            width: 90%;
+            width: 75%;
+            margin-left: 220px;
             max-width: 1200px;
-            background: #fff;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 10px; /* Giảm khoảng cách phía trên */
+            margin-top: 10px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* flex: 1; */
         }
         h2 {
             text-align: center;
@@ -33,6 +41,7 @@
         }
         .table-container {
             overflow-x: auto;
+            max-height: 80vh;
         }
         .order-table {
             width: 100%;
@@ -80,37 +89,45 @@
             background-color: #0056b3;
         }
 </style>
-
+</head>
+<body>
+<?php include "../Admin_dashboard/Header_Sidebar.php"?>
 <div class="container">
-<h2>Danh sách đơn hàng</h2> 
-<div class="table-container">
-    <table border="1" class="order-table">
-        <tr>
-            <th>Họ tên</th> 
-            <th>Địa chỉ</th>
-            <th>Điện thoại</th>
-            <th>Email</th>
-            <th>Tình trạng</th>
-            <th></th>
-        </tr>
-        <?php
-            foreach($data as $row){
-                echo "<tr>";
-                echo "<td>{$row['fullname']}</td>";
-                echo "<td>{$row['address']}</td>";
-                echo "<td>{$row['phonenumber']}</td>";
-                echo "<td>{$row['email']}</td>";
-                if($row['status'] == 1) echo "<td>Chưa xử lý</td>";
-                else if($row['status'] == 2) echo "<td>Đang xử lý</td>";
-                else if($row['status'] == 2) echo "<td>Đã xử lý</td>";
-                else echo "<td>Huỷ</td>";
-                echo "<td><a href='order_detail.php?orderID={$row['id']}'>Chi tiết</a></td>";
-                echo "</tr>";
-            }
-        ?>
-    </table>
+    <h2>Danh sách đơn hàng</h2> 
+    <div class="table-container">
+        <table border="1" class="order-table">
+            <tr>
+                <th>Họ tên</th> 
+                <th>Địa chỉ</th>
+                <th>Điện thoại</th>
+                <th>Email</th>
+                <th>Tình trạng</th>
+                <th></th>
+            </tr>
+            <?php
+                foreach($data as $row){
+                    echo "<tr>";
+                    echo "<td>{$row['fullname']}</td>";
+                    echo "<td>{$row['address']}</td>";
+                    echo "<td>{$row['phonenumber']}</td>";
+                    echo "<td>{$row['email']}</td>";
+                    if($row['status'] == 1) echo "<td>Chưa xử lý</td>";
+                    else if($row['status'] == 2) echo "<td>Đang xử lý</td>";
+                    else if($row['status'] == 2) echo "<td>Đã xử lý</td>";
+                    else echo "<td>Huỷ</td>";
+                    echo "<td><a href='order_detail.php?orderID={$row['id']}'>Chi tiết</a></td>";
+                    echo "</tr>";
+                }
+            ?>
+        </table>
+    </div>
+    <div class="button-container">
+        <button class="back-button"><a href="order_categories.php">Quay lại</a></button>
+    </div>
 </div>
-<div class="button-container">
-    <button class="back-button"><a href="order_categories.php">Quay lại</a></button>
-</div>
-</div>
+<?php include "../Admin_dashboard/Footer.php"?>
+</body>
+</html>
+
+
+
