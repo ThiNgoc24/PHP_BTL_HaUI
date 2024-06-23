@@ -22,7 +22,7 @@
         //     // Xử lý khi đặt hàng thất bại
         //     echo "Đặt hàng thất bại. Vui lòng thử lại.";
         // }
-        if($order_method === '1' || $order_method === '2'){
+        if($order_method === '1' || $order_method === '2' || $order_method === '3' || $order_method === '4'){
             if(orderSuccess($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method)){
                 echo "Đặt hàng thành công";
                 header("Location: thanks_page.php");

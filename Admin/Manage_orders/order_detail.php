@@ -7,7 +7,7 @@
                     join order_methods c on b.order_method_id = c.id
                     where b.id = $orderID";
 
-        $sqlOrderProduct = "select products.name, order_detail.quantity, order_detail.price
+        $sqlOrderProduct = "select products.name, products.image, order_detail.quantity, order_detail.price
                             from order_detail join products on order_detail.productId =  products.id
                             where order_detail.orderId = $orderID";
 
@@ -106,6 +106,13 @@
             align-items: center;
             margin-bottom: 20px;
         }
+
+        .list_products_detail td img{
+            width: 100px; 
+            height: auto;
+            display: block;
+            margin: 0 auto; 
+        }
     </style>
 </head>
 <body>
@@ -177,22 +184,24 @@
                 <thead>
                     <tr>
                         <th>Tên sản phẩm</th>
+                        <th>Hình ảnh</th>
                         <th>Số lượng</th>
                         <th>Giá bán</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="list_products_detail">
                     <?php
                     foreach ($dataOrderProduct as $row) {
                         echo "<tr>";
                         echo "<td>{$row['name']}</td>";
+                        echo "<td><img src='../../images/{$row['image']}' alt='{$row['image']}'></td>";
                         echo "<td>{$row['quantity']}</td>";
                         echo "<td>{$row['price']}</td>";
                         echo "</tr>";
                     }
                     ?>
                     <tr>
-                        <td colspan="3" style="text-align: right;">Tổng tiền: <?php echo $tong; ?></td>
+                        <td colspan="4" style="text-align: right;">Tổng tiền: <?php echo $tong; ?></td>
                     </tr>
                 </tbody>
             </table>

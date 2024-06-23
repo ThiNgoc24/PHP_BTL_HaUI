@@ -80,7 +80,7 @@
                 <?php foreach ($cartItems as $item): ?>
                 <tr>
                     <td><?php echo $item['product_name']; ?></td>
-                    <td><img src="./images/<?php echo $item['product_image']; ?>" alt="<?php echo $item['product_name']; ?>"></td>
+                    <td><img src="../../images/<?php echo $item['product_image']; ?>" alt="<?php echo $item['product_name']; ?>"></td>
                     <td><?php echo $item['product_price']; ?></td>
                     <td>
                         <form method="post">

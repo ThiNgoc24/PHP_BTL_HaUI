@@ -11,7 +11,7 @@
         insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method);
         insertOrderDetails($orderID, $memberID);
         // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
-        clearCart($memberID);
+        // clearCart($memberID); Tạm thời khoá để test thanh toán
     }
 
     function insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method) {
