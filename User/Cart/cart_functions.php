@@ -5,6 +5,15 @@
         return queryDatabase($sql);
     }
 
+    function getTotalCart($memberID){
+        $total = 0;
+        $products = getCartItems($memberID);
+        foreach($products as $product){
+            $total += $product['product_price'] * $product['quantity'];
+        }
+        return $total;
+    }
+
     function updateCartItemQuantity($memberID, $productID, $newQuantity){
         $sql = "UPDATE `cart` SET `quantity` = '{$newQuantity}' WHERE `product_id` = '{$productID}' AND `member_id` = '{$memberID}'";
         return executeQuery($sql);

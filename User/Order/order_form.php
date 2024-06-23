@@ -14,7 +14,7 @@ $order_methods = getOrderMethod();
 </head>
 <body>
     <div class="container">
-        <h1 style="background-color: #cccc">Thông tin đặt hàng</h1>
+        <h1 class="header">Thông tin đặt hàng</h1>
 
         <div class="order-form">
             <form method="post" action="handle_order.php">
@@ -54,11 +54,12 @@ $order_methods = getOrderMethod();
                         echo "<label for='order_method_{$item['id']}'>{$item['name']}</label><br>";
                         echo "</div>";
                     }
-?>
+                ?>
                 </div>
 
                 <div class="form-submit">
-                    <input type="submit" name="redirect" value="Đặt hàng ngay"></input>
+                    <button><a href="../Cart/cart_page?<?php echo $_SESSION['member_id'];?>">Quay lại</a></button>
+                    <input id="btnOrder" type="submit" name="redirect" value="Đặt hàng ngay"></input>
                 </div>
             </form>
         </div>

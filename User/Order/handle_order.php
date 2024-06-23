@@ -13,6 +13,7 @@
         $email = $_POST['email'];
         $note = $_POST['note'];
         $order_method = $_POST['order_method'];
+        $totalOrder = getTotalOrder($memberID);
     
         // if (placeOrder($_SESSION['user_id'], $recipientInfo, $paymentMethod)) {
         //     // Xử lý khi đặt hàng thành công
@@ -34,7 +35,7 @@
             $vnp_TxnRef = $orderID; //Mã đơn hàng. 
             $vnp_OrderInfo = 'Thanh toán đơn hàng tại Web';
             $vnp_OrderType = 'billpayment';
-            $vnp_Amount = 10000 * 100;
+            $vnp_Amount = $totalOrder * 100;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
             $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];

@@ -8,7 +8,7 @@
     // }
     $_SESSION['member_id'] = 10; //dùng tạm thời
     $cartItems = getCartItems($_SESSION['member_id']); //Đợi chức năng đăng nhập và trả về member_id để dùng
-
+    $totalCart = getTotalCart($_SESSION['member_id']);
     // Xử lý tăng số lượng
     if (isset($_POST['increase_quantity'])) {
         $productId = $_POST['product_id'];
@@ -59,7 +59,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Giỏ hàng</title>
     <link rel="stylesheet" href="cart_page.css">
 </head>
 <body>
@@ -98,6 +98,10 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
+                <tr>
+                    <td colspan="4"><b>Tổng tiền:</b></td>
+                    <td><?php echo $totalCart;?></td>
+                </tr>
             </table>
             
             <div class="footer_button">

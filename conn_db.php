@@ -11,6 +11,7 @@
         }
         return $conn;
     }
+
     
     function executeQuery($sql){
         $conn = connectToDatabase();

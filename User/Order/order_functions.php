@@ -8,20 +8,18 @@
     }
 
     function orderSuccess($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method){
-        insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method);
-        insertOrderDetails($orderID, $memberID);
-        // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
-        // clearCart($memberID); Tạm thời khoá để test thanh toán
+        if(insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method) && insertOrderDetails($orderID, $memberID)){
+            // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
+            // clearCart($memberID); Tạm thời khoá để test thanh toán
+            return true;
+        }
+        return false;
     }
 
     function insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method) {
         $sql = "INSERT INTO orders (id, member_id, order_method_id, receiver, address, phone, email, note) 
                 VALUES ($orderID, '$memberID', '$order_method', '$receiver', '$address',  '$phone', '$email', '$note')";
-        if(executeQuery($sql)){
-            echo "Save order successfully";
-        }else{
-            echo "Can not save order";
-        }
+        return executeQuery($sql);
     }
     
     function insertOrderDetails($orderID, $memberID) {
@@ -32,12 +30,14 @@
             $price = $item['product_price'];
             $sql = "INSERT INTO order_detail (productId, orderId, quantity, price) 
                     VALUES ('$productId', '$orderID', $quantity, $price)";
-            if(executeQuery($sql)){
-                echo "Save order detail successfully";
-            }else{
-                echo "Can not save order detail";
+            if(executeQuery($sql) === false){
+                return false;
             }
         }
+        return true;
     }
-    
+
+    function getTotalOrder($memberID){
+        return getTotalCart($memberID);
+    }
 ?>
