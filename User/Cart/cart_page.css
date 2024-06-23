@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Hoặc font chữ bạn chọn */
+    background-color: #f5f5f5;
+}
+
+.main_content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 20px auto; /* Canh giữa */
+    max-width: 960px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left; /* Căn trái cho văn bản */
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+button {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #286090;
+}
+
+/* Hình ảnh */
+img {
+    max-width: 100px;
+    height: auto;
+}
+
+.footer_button {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+}
+
+* Kiểu cho các nút */
+.footer_button button {
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+}
+
+.footer_button button:hover {
+    background-color: #286090; /* Màu xanh dương đậm hơn khi hover */
+}
+
+/* Kiểu riêng cho nút "Xóa tất cả" */
+.footer_button button[name="clear_cart"] {
+    background-color: #d9534f; /* Màu đỏ */
+}
+
+.footer_button button[name="clear_cart"]:hover {
+    background-color: #c9302c; /* Màu đỏ đậm hơn khi hover */
+}
