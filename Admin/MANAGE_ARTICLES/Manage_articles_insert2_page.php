@@ -274,7 +274,7 @@
     </div>
 
     <div class="container">
-    <a href="../../MANAGE_INDEX/Manage_index_page.php"  class="trangchu">Trang chủ</a>
+    <a href="../MANAGE_INDEX/Manage_index_page.php"  class="trangchu">Trang chủ</a>
         <h1 style='margin-left:350px; font-size:30px; color:#007bff'>Thêm bài viết mới</h1>
         <form action="Manage_articles_functions.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">

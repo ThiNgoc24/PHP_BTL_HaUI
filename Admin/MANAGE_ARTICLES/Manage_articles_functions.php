@@ -173,6 +173,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn_thembaiviet'])) {
             $uniqueName = uniqid('img_') . '.' . $extension;
             return $uniqueName;
         } 
+
+        //Xóa
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             
