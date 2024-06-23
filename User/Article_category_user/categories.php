@@ -58,7 +58,7 @@ $categories = getCategories();
 </head>
 <body>
     <div class="container">
-        <h1>Select a Category</h1>
+        <h1>Danh mục bài viết</h1>
         <ul>
             <?php
             if (!empty($categories)) {
@@ -66,12 +66,11 @@ $categories = getCategories();
                     echo "<li><a href='articles.php?category_id=" . $row['id'] . "'>" . $row['name'] . "</a></li>";
                 }
             } else {
-                echo "<li>No categories found.</li>";
+                echo "<li>Không có danh mục nào.</li>";
             }
             ?>
         </ul>
         <div class="footer">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
         </div>
     </div>
 </body>

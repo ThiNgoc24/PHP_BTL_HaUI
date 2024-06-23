@@ -64,7 +64,7 @@ if ($category_id) {
     </head>
     <body>
         <div class="container">
-            <h1>Articles in Selected Category</h1>
+            <h1>Danh sách bài viết</h1>
             <ul>
                 <?php
                 if (!empty($articles)) {
@@ -72,11 +72,11 @@ if ($category_id) {
                         echo "<li><a href='articles.php?article_id=" . $row['id'] . "'>" . $row['name'] . "</a></li>";
                     }
                 } else {
-                    echo "<li>No articles found in this category.</li>";
+                    echo "<li>Không có bài viết nào trong danh mục</li>";
                 }
                 ?>
             </ul>
-            <a class="back-link" href="categories.php">Back to Categories</a>
+            <a class="back-link" href="categories.php">Quay lại</a>
         </div>
     </body>
     </html>
@@ -157,14 +157,14 @@ if ($article_id) {
                     <?php if ($article['audio']) { ?>
                         <p><audio controls src="<?php echo $article['audio']; ?>"></audio></p>
                     <?php } ?>
-                    <a class="back-link" href="articles.php?category_id=<?php echo $article['article_cat_id']; ?>">Back to Articles</a>
+                    <a class="back-link" href="articles.php?category_id=<?php echo $article['article_cat_id']; ?>">Quay lại</a>
                 </div>
             </div>
         </body>
         </html>
         <?php
     } else {
-        echo "Article not found.";
+        echo "Không tồn tại nội dung.";
     }
 }
 ?>
