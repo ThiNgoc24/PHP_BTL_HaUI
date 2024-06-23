@@ -108,7 +108,7 @@
             border-radius: 5px; /* Bo góc cho mục menu khi hover */
         }
 /* CSS để style ô tìm kiếm */
-#searchInput {
+        #searchInput {
             padding: 10px 15px; /* Để lại không gian xung quanh nội dung bên trong ô tìm kiếm */
             border: 1px solid #ccc; /* Đường viền xung quanh ô tìm kiếm */
             border-radius: 20px; /* Để bo tròn các góc của ô tìm kiếm */

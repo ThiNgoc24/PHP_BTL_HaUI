@@ -324,7 +324,7 @@ if (isset($_GET['id'])) {
                 <label for="image">Ảnh đại diện:</label>
                 <input type="file" id="image" name="image" accept="image/*" >
                 <?php if (!empty($current_article['image'])): ?>
-                     <img src="<?php echo $current_article['image']; ?>" alt="Current Image" style="max-width: 200px; margin-top: 10px;">
+                     <img src="../../images/<?php echo $current_article['image']; ?>" alt="Current Image" style="max-width: 200px; margin-top: 10px;">
                      <?php endif; ?>
             </div>
             <div class="form-group">

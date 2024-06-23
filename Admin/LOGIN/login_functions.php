@@ -1,7 +1,7 @@
 <?php
 // Khởi tạo phiên
 session_start();
-include "../conn_db.php";
+include "../../conn_db.php";
 
 $username_error = "";
 $password_error = "";
