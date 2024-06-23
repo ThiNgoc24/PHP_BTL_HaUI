@@ -155,7 +155,7 @@ if ($article_id) {
                         <p><iframe src="https://www.youtube.com/embed/<?php echo $article['youtube']; ?>"></iframe></p>
                     <?php } ?>
                     <?php if ($article['audio']) { ?>
-                        <p><audio controls src="<?php echo $article['audio']; ?>"></audio></p>
+                        <p><audio controls src="../../audios/<?php echo $article['audio']; ?>"></audio></p>
                     <?php } ?>
                     <a class="back-link" href="articles.php?category_id=<?php echo $article['article_cat_id']; ?>">Quay lại</a>
                 </div>
