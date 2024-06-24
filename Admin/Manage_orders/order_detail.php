@@ -109,7 +109,7 @@
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <div class="header">
-            <h2>Chi tiết đơn hàng</h2>
+            <h1>Chi tiết đơn hàng</h1>
         </div>
         <div class="infors">
             <div class="infor">

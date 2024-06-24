@@ -6,8 +6,8 @@
     <title>Loại đơn hàng</title>
     <style>
         .main {
-            width: 75%;
-            margin-left: 220px;
+            width: 80%;
+            /* margin-left: 220px; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -55,7 +55,7 @@
 <body>
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="main">
-        <h2>Loại đơn hàng</h2>
+        <h1>Loại đơn hàng</h1>
         <div class="list_cate">
             <a href="list_orders.php?orderType=1">Chưa xử lý</a><br>
             <a href="list_orders.php?orderType=2">Đang xử lý</a><br>

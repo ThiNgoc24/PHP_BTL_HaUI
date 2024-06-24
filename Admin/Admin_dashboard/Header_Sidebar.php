@@ -143,13 +143,13 @@
         </div>
         <div class="header-links">
             <h2 class="dashboard_link"><a href="/PHP_BTL_HaUI/Admin/Admin_dashboard/Dashboard_page.php">TRANG QUẢN TRỊ</a></h2>
-            <div class="header-links2">
+            <!-- <div class="header-links2">
                 <form action="#" method="GET">
                     <input style='margin-right : 20px;' type="text" id="searchInput" name="keyword" placeholder="Tìm kiếm...">
                     <button type="submit" id="searchButton" >Tìm</button>
                 </form>
                 <a href="#"><i class="fa-solid fa-user" style='margin-right : 10px'></i> Admin</a>
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -158,11 +158,11 @@
         <ul>
             <li><a href="#">Bảo trì danh mục sản phẩm</a></li>
             <li><a href="#">Bảo trì danh mục bài viết</a></li>
-            <li><a href="#">Bảo trì tác giả</a></li>
+            <li><a href="../Manage_Authors/list_page.php">Bảo trì tác giả</a></li>
             <li><a href="#">Bảo trì sản phẩm</a></li>
             <li><a href="../MANAGE_ARTICLES/Manage_articles_page.php">Bảo trì bài viết</a></li>
             <li><a href="../Manage_orders/order_categories.php">Quản lý đơn hàng</a></li>
-            <li><a href="#">Quản lý tài khoản</a></li>
+            <li><a href="../Manage_Members/index.php">Quản lý tài khoản</a></li>
         </ul>
     </div>
 </body>

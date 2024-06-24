@@ -8,19 +8,23 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .container {
-            background-color: #fff;
+            /* background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 500px;
-            width: 100%;
+            width: 100%; */
+            width: 50%;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
         h2 {
             text-align: center;
@@ -77,6 +81,7 @@
         }
     }
     ?>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h2>Bạn có chắc chắn muốn xoá?</h2>
         <form action="BTriTacGia_functions.php" method="POST">
@@ -89,5 +94,6 @@
         </form>
         <a class="back-link" href="list_page.php">Huỷ bỏ</a>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

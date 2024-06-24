@@ -18,7 +18,7 @@ $errors = $memberFunctions->handleAddMemberRequest();
         }
         .container {
             width: 50%;
-            margin: 50px auto;
+            margin: 0px auto;
             background-color: white;
             padding: 20px;
             border-radius: 5px;
@@ -71,6 +71,7 @@ $errors = $memberFunctions->handleAddMemberRequest();
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h1>Thêm tài khoản</h1>
         <form method="POST" action="">
@@ -129,5 +130,6 @@ $errors = $memberFunctions->handleAddMemberRequest();
         </form>
         <a class="back-link" href="index.php">Quay lại danh sách tài khoản</a>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

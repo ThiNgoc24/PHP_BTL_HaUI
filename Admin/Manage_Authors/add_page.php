@@ -12,12 +12,19 @@
             padding: 20px;
         }
         .container {
-            max-width: 600px;
+            /* max-width: 600px;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+            width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
         h2 {
             text-align: center;
@@ -58,6 +65,7 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h2>Thêm tác giả mới</h2>
         <form action="BTriTacGia_functions.php" method="POST" enctype="multipart/form-data">
@@ -79,6 +87,7 @@
         </form>
         <a class="back-link" href="list_page.php">Quay lại danh sách</a>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
     <script>
         document.querySelector('form').addEventListener('submit', function (e) {
             let nameField = document.querySelector('input[name="name"]');

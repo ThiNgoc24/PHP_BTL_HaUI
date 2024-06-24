@@ -75,6 +75,7 @@ $member = $result['member'];
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h1>Sửa tài khoản</h1>
         <p style="text-align: center; color: coral;">Không được sửa mật khẩu và email (-.-)</p>
@@ -122,5 +123,6 @@ $member = $result['member'];
         </form>
         <a class="back-link" href="index.php">Huỷ bỏ</a>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

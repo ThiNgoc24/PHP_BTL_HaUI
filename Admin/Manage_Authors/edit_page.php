@@ -12,12 +12,13 @@
             padding: 20px;
         }
         .container {
-            max-width: 600px;
+            width: 70%;
             margin: 0 auto;
+            overflow: hidden;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
         h2 {
             text-align: center;
@@ -80,6 +81,7 @@
         }
     }
     ?>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h2>Chỉnh sửa tác giả</h2>
         <form action="BTriTacGia_functions.php" method="POST" enctype="multipart/form-data">
@@ -106,5 +108,6 @@
         </form>
         <a class="back-link" href="list_page.php">Huỷ bỏ</a>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

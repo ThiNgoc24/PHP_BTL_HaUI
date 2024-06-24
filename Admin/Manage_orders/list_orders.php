@@ -24,8 +24,8 @@
             align-items: center;
         } */
         .container {
-            width: 75%;
-            margin-left: 220px;
+            width: 80%;
+            /* margin-left: 220px; */
             max-width: 1200px;
             padding: 20px;
             margin-top: 10px; 
@@ -60,13 +60,18 @@
         .order-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        .order-table a {
-            color: #007bff;
+        .btn_detail{
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
             text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
         }
-        .order-table a:hover {
-            text-decoration: underline;
+        .btn_detail:hover{
+           background-color: #218838;
         }
+
         .button-container {
             text-align: center;
             margin-top: 20px;
@@ -88,12 +93,14 @@
         .back-button:hover {
             background-color: #0056b3;
         }
+
+        
 </style>
 </head>
 <body>
 <?php include "../Admin_dashboard/Header_Sidebar.php"?>
 <div class="container">
-    <h2>Danh sách đơn hàng</h2> 
+    <h1>Danh sách đơn hàng</h1> 
     <div class="table-container">
         <table border="1" class="order-table">
             <tr>
@@ -115,7 +122,7 @@
                     else if($row['status'] == 2) echo "<td>Đang xử lý</td>";
                     else if($row['status'] == 2) echo "<td>Đã xử lý</td>";
                     else echo "<td>Huỷ</td>";
-                    echo "<td><a href='order_detail.php?orderID={$row['id']}'>Chi tiết</a></td>";
+                    echo "<td><a class='btn_detail' href='order_detail.php?orderID={$row['id']}'>Chi tiết</a></td>";
                     echo "</tr>";
                 }
             ?>
