@@ -96,7 +96,7 @@
     <link rel="stylesheet" href="../Show_category/style.css">
 </head>
 <body>
-    <h2>Quản lý Danh mục Bài viết</h2>
+    <h2>Quản lý danh mục bài viết</h2>
     <a href="add_article_category.php" class="btn btn-add">Thêm mới</a>
     <br><br>
     <table>

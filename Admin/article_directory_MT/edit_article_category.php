@@ -89,7 +89,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Sửa Danh mục Bài viết</h2>
+        <h2>Sửa danh mục bài viết</h2>
         <?php
         include '../../conn_db.php';
         include 'Article_category_data.php';
