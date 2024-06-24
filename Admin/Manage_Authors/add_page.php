@@ -69,7 +69,7 @@
             </div>
             <div>
                 <select name="status" required>
-                    <option value="1">Đang hoạt động</option>
+                    <option value="1">Hoạt động</option>
                     <option value="0">Không hoạt động</option>
                 </select>
             </div>

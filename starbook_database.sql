@@ -132,7 +132,7 @@ INSERT INTO `authors` (`id`, `name`, `image`, `status`) VALUES
 (3, 'Giác Minh Luật', 'giacminhluat.png', 1),
 (4, 'Vũ Trọng Phụng', 'VuTrongPhung.jpg', 1),
 (5, 'Thích Nhất Hạnh', 'thichnhathanh.jpg', 1),
-(14, 'Huyền Trang', 'HuyenTrang.jpg', 1),
+(6, 'Huyền Trang', 'HuyenTrang.jpg', 1),
 (7, 'Bát Nguyệt Trường An', 'batnguyettruongan.jpg', 1),
 (8, 'Nguyễn Phong Vũ', 'npv.jpg', 1),
 (9, 'Luis Sepulveda', 'holloway.jpg', 1),

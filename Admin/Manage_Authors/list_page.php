@@ -119,7 +119,7 @@
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td><img src="../../images/authors/<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>" class="thumbnail"></td>
-                    <td><?php echo $row['status']; ?></td>
+                    <td><?php if($row['status'] == 1){echo "Hoạt động";} else {echo "Không hoạt động";}?></td>
                     <td class="actions">
                         <a href="edit_page.php?id=<?php echo $row['id']; ?>" class="edit-button">Sửa</a>
                         <a href="delete_page.php?id=<?php echo $row['id']; ?>" class="delete-button">Xóa</a>

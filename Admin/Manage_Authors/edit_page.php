@@ -96,7 +96,7 @@
             </div>
             <div>
                 <select name="status" required>
-                    <option value="1" <?php if ($row['status'] == 1) echo 'selected'; ?>>Đang hoạt động</option>
+                    <option value="1" <?php if ($row['status'] == 1) echo 'selected'; ?>>Hoạt động</option>
                     <option value="0" <?php if ($row['status'] == 0) echo 'selected'; ?>>Không hoạt động</option>
                 </select>
             </div>
