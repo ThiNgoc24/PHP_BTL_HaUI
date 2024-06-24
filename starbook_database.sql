@@ -282,7 +282,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `username`, `password`, `fullname`, `phonenumber`, `address`, `email`, `status`) VALUES
-(1, 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Lương Minh Anh', '0357227222', 'Hà Nội', 'luongminhanh.thcstm@gmail.com', 1),
+(1, 'user', 'e10adc3949ba59abbe56e057f20f883e', 'Đinh Hồng Liễu', '0357227222', 'Hà Nội', 'dinhhlieu22@gmail.com', 1),
 (2, 'user1', '16bc9ae9cd9b79843713fc4646981ba9', 'User 1', '01232323232', 'Hà Nội', 'luongminhanh.thcstm@gmail.com', 1),
 (5, 'minhanh20', 'd41d8cd98f00b204e9800998ecf8427e', 'Lương Minh Anh', '0357227195', 'Đại học Công Nghiệp Hà Nội', 'luongminhanh.thcstm@gmail', 0),
 (6, 'minh12', 'd41d8cd98f00b204e9800998ecf8427e', 'abcd', '0357227195', 'ha noi', 'minh@gmail.com', 1),
