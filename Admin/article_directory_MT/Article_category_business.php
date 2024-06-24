@@ -23,19 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['action'])) {
     if ($action == 'add') {
         addCategory($name, $status);
         resetAutoIncrement();
-        echo "Thêm danh mục bài viết thành công. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
+        header("Location: Article_category_page.php");
+        exit();
     } elseif ($action == 'edit') {
         $id = $_POST['id'];
         editCategory($id, $name, $status);
-        echo "Cập nhật danh mục bài viết thành công. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
+        header("Location: Article_category_page.php");
+        exit();
     } elseif ($action == 'delete') {
         deleteCategory($id);
         resetAutoIncrement();
-        echo "Xóa danh mục thành công. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
+        header("Location: Article_category_page.php");
+        exit();
     } else {
-        echo "Hành động không hợp lệ. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
+        echo "Hành động không hợp lệ. <a href='Article_category_page.php'>Quay lại</a>";
     }
 } else {
-    echo "Yêu cầu không hợp lệ. <a href='Article_category_page.php'>Quay lại trang quản lý</a>";
+    echo "Yêu cầu không hợp lệ. <a href='Article_category_page.php'>Quay lại</a>";
 }
 ?>

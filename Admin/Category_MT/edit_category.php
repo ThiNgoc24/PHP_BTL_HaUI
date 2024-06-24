@@ -13,8 +13,7 @@
             display: flex;
             justify-content: center;
             margin: 4% 0;
-            /* align-items: center; */
-            height: 50vh;
+            height: auto;
         }
         .container {
             background-color: #fff;
@@ -22,11 +21,23 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
-            height: 300px;
+            height: auto;
         }
         h2 {
             text-align: center;
             color: #007bff;
+        }
+        .message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .error {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         form {
             display: flex;
@@ -62,6 +73,18 @@
         a:hover {
             text-decoration: underline;
         }
+        .btn-back {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -74,20 +97,34 @@
         $id = $_GET['id'];
         $result = getCategoryById($id);
 
+        if (isset($_GET['success']) && $_GET['success'] == 1) {
+            echo "<div class='message'>Bạn đã cập nhật thông tin thành công</div>";
+        } elseif (isset($_GET['error']) && $_GET['error'] == 1) {
+            echo "<div class='error'>Cập nhật thất bại. Vui lòng thử lại.</div>";
+        }
+
         if (!empty($result)) {
             $row = $result[0];
             echo "<form action='Category_business.php' method='POST'>
-                    <input type='hidden' name='action' value='edit'>
-                    <input type='hidden' name='id' value='".$row['id']."'>
-                    <label for='name'>Tên danh mục:</label>
-                    <input type='text' id='name' name='name' value='".$row['name']."' required>
-                    <label for='status'>Trạng thái:</label>
-                    <input type='text' id='status' name='status' value='".$row['status']."' required>
-                    <input type='submit' value='Cập nhật'>
-                    <a href='Category_page.php'>Quay lại trang quản lý</a>
-                  </form>";
+            <input type='hidden' name='action' value='edit'>
+            <input type='hidden' name='id' value='".$row['id']."'>
+            <label for='name'>Tên danh mục:</label>
+            <input type='text' id='name' name='name' value='".$row['name']."' required>
+            <label for='status'>Trạng thái:</label>
+            <div style='display: flex; align-items: center;'>
+                <input type='radio' id='status1' name='status' value='1' ".($row['status'] == '1' ? 'checked' : '')." required>
+                <label for='status1' style='margin-right: 100px;'>Đang hiển thị</label>
+                <input type='radio' id='status0' name='status' value='0' ".($row['status'] == '0' ? 'checked' : '')." required>
+                <label for='status0'>Bị ẩn</label>
+            </div>
+            <br>
+            <input type='submit' value='Cập nhật'>
+            <a href='Category_page.php'>Quay lại</a>
+            </form>";
+
+
         } else {
-            echo "Không tìm thấy danh mục. <a href='Category_page.php'>Quay lại trang quản lý</a>";
+            echo "Không tìm thấy danh mục. <a href='Category_page.php'>Quay lại</a>";
         }
         ?>
     </div>

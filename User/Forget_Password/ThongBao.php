@@ -82,12 +82,16 @@
 </head>
 <body>
     <div class="notification-box">
-        <i class="fas fa-check-circle icon-success"></i>
+        <div class="center-link">
+            <i style="font-size: 100px;" class="fas fa-check-circle icon-success"></i>
+        </a>
+        </div>
+        <!-- <i class="fas fa-check-circle icon-success"></i> -->
         <p>Chúng tôi đã gửi mật khẩu mới về email của bạn. Vui lòng kiểm tra hộp thư và đăng nhập lại hệ thống!</p>
         <a href="/login" class="login-button">Đăng nhập</a>
         <br>
         <br>
-        <img src="../../images/100badkn.webp" alt="Book Image">
+        <!-- <img src="../../images/100badkn.webp" alt="Book Image"> -->
     </div>
 </body>
 </html>
