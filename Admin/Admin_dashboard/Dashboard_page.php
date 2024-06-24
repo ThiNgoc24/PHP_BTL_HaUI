@@ -49,7 +49,6 @@
 <body>
     <?php include "Header_Sidebar.php"?>
     <div class="abovechart">
-        <a href="Dashboard_page.php">Trang chủ</a>
         <h1 style='margin-left:250px; font-size:30px; color:#007bff'>Doanh thu các sản phẩm</h1>
     </div>
     <div id="chart"></div>

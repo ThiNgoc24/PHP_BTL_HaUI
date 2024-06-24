@@ -128,6 +128,12 @@
             background-color: #ccc; /* Màu nền thay đổi khi hover */
             color: #fff; /* Màu chữ thay đổi khi hover */
         }
+
+        .dashboard_link a{
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -136,7 +142,7 @@
             <img src="../../images/header1.jpg" alt="">
         </div>
         <div class="header-links">
-            <h2>TRANG QUẢN TRỊ</h2>
+            <h2 class="dashboard_link"><a href="/PHP_BTL_HaUI/Admin/Admin_dashboard/Dashboard_page.php">TRANG QUẢN TRỊ</a></h2>
             <div class="header-links2">
                 <form action="#" method="GET">
                     <input style='margin-right : 20px;' type="text" id="searchInput" name="keyword" placeholder="Tìm kiếm...">
