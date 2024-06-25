@@ -3,9 +3,10 @@
         $servername = 'localhost';
         $username = 'root';
         $password = '';
-        $name_db = 'starbook_databse';
-        $port ="4306";
-        $conn = new mysqli($servername, $username, $password, $name_db,$port);
+        $name_db = 'starbook_database';
+        // $port ="4306";
+        // $conn = new mysqli($servername, $username, $password, $name_db,$port);
+        $conn = new mysqli($servername, $username, $password, $name_db);
         if($conn->connect_error){
             die("Connection failed: " . $conn->connect_error);
         }
