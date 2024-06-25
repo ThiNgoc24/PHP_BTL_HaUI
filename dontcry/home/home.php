@@ -8,97 +8,335 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
-        }
+    header {
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+    }
 
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10px;
-            background-color: #5ba3eb;
-            color: #ffffff;
-            height: 35px;
-        }
+    .top-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        background-color: #5ba3eb;
+        color: #ffffff;
+        height: 35px;
+    }
 
-        .contact-info {
-            display: flex;
-            align-items: center;
-        }
+    .contact-info {
+        display: flex;
+        align-items: center;
+    }
 
-        .auth-links {
-            display: flex;
-            align-items: center;
-        }
+    .auth-links {
+        display: flex;
+        align-items: center;
+    }
 
-        .auth-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 10px;
-        }
+    .auth-links a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+    }
 
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-            padding: 0 20px;
-            background-color: #f9f9f9;
-        }
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        padding: 0 20px;
+        background-color: #f9f9f9;
+    }
 
-        .logo img {
-            max-width: 170px;
-        }
+    .logo img {
+        max-width: 170px;
+    }
 
-        header nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
 
-        header nav ul li {
-            margin-right: 35px;
-        }
+    header nav ul li {
+        margin-right: 35px;
+    }
 
-        header nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: large;
-        }
+    header nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: large;
+    }
 
-        header nav ul li a:hover {
-            text-decoration: none;
-            color: #0e4894;
-            font-weight: bold;
-        }
+    header nav ul li a:hover {
+        text-decoration: none;
+        color: #0e4894;
+        font-weight: bold;
+    }
 
-        .extra-links {
-            display: flex;
-            align-items: center;
-            
-        }
+    .extra-links {
+        display: flex;
+        align-items: center;
+        
+    }
 
-        .extra-links a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 20px;
-            font-weight: bold;
-        }
+    .extra-links a {
+        text-decoration: none;
+        color: #333;
+        margin-left: 20px;
+        font-weight: bold;
+    }
 
-        .extra-links a:hover{
-            text-decoration: none;
-            color: #0e4894;
-            margin-left: 20px;
-            font-weight: bold;
-        }
+    .extra-links a:hover{
+        text-decoration: none;
+        color: #0e4894;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+
+    /*css cho main*/
+    .container1 {
+        display: flex;
+    }
+    .left-sidebar {
+        width: 20%;
+        padding: 10px;
+        background-color: #f9f9f9;
+        
+    }
+    .left-sidebar h2 {
+        margin-left: 20px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .main-content {
+        width: 80%;
+        padding: 10px;
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .search {
+        width: 60%;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .search form {
+        display: flex;
+        align-items: center;
+    }
+
+    .search input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    .search input[type="text"]:focus {
+        border-color: #007bff;
+    }
+
+    .search button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search button:hover {
+        background-color: #0056b3;
+    }
+
+
+    .contact {
+        width: 35%;
+        text-align: right;
+        margin-top: 10px;
+    }
+
+
+
+    .bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bottom img {
+        width: 80%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .category-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .category-list a {
+        display: block;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #f8f8f8;
+        color: #333;
+        text-decoration: none;
+        border: 0px solid #ddd;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+        width: 210px;
+        padding-left: 30px;
+    }
+
+    .category-list a:hover {
+        background-color: #ddd;
+        color: #000;
+    }
+
+    .category-list a:active {
+        background-color: #ccc;
+        color: #000;
+    }
+
+    .sidebar h2 {
+        margin-top: 0;
+        font-size: 1.2em;
+        color: #444;
+    }
+    /*author container*/
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+
+    .author-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .author {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .author img {
+        width: 70px;
+        height: 70px;
+        display: block;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+    }
+
+    .author p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    /*footer*/
+
+    footer {
+        background-color: #f8f8f8;
+        padding: 20px 0;
+        border-top: 1px solid #ddd;
+    }
+
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .footer-logo img {
+        max-width: 150px;
+    }
+
+    .footer-contact,
+    .footer-posts,
+    .footer-store {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .footer-contact h3,
+    .footer-posts h3,
+    .footer-store h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .footer-contact p,
+    .footer-store p {
+        margin: 5px 0;
+        color: #666;
+    }
+
+    .footer-posts ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-posts li {
+        margin-bottom: 5px;
+    }
+
+    .footer-posts a {
+        text-decoration: none;
+        color: #0073e6;
+    }
+
+    .footer-posts a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding: 10px;
+        background-color: #5ba3eb;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .footer-bottom p {
+        margin: 0;
+    }
+
     .bottom2 {
             width: 80%;
             margin: 0 auto;

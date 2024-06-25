@@ -17,7 +17,98 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Kết quả tìm kiếm</title>
-    <link rel="stylesheet" href="../css/styles.css"> 
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+        }
+        .btn-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 7rem;
+        }
+
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+
+        .product-list-search {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        .product-info h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-info p {
+            margin: 5px 0;
+        }
+
+        .btn-view {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .btn-view:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background-color: #0056b3;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+    </style> 
 </head>
 <body style="padding: 20px;">
     <h1 style="text-align: center; margin-bottom: 20px; color: black;">Kết quả tìm kiếm</h1>

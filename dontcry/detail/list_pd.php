@@ -49,9 +49,135 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách sản phẩm</title>
     <style>
+        /*style detail/list-pd và xemtheodm/products*/
+        .body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
 
+        .banner1 {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .banner1 img {
+            width: 100%;
+            height: 180px;
+        }
+
+        .banner1 h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            margin: 0;
+            color: white;
+        }
+
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .back-button a {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .back-button a:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        .product {
+            font-family: Arial, sans-serif;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+        
+            border-radius: 5px;
+            text-align: center;
+            width: 220px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .product a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .product:hover img {
+            transform: scale(1.05);
+        }
+        .product:hover h2 {
+            color: #0056b3;
+        }
+        .product:hover a {
+            color: #0056b3;
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .pagination a:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .price {
+            color: red;
+            font-weight: bold;
+        }
     </style>
-    <link rel="stylesheet" href="../css/styles.css">
+    
 </head>
 <body>
     <div class="banner1">
