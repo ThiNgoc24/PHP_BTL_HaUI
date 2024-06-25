@@ -1,3 +1,3 @@
 <?php
-echo "helooo";
+echo "Đây là trang chủ nhá ";
 ?>
