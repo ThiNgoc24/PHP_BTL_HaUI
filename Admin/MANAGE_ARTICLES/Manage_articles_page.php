@@ -107,6 +107,9 @@
     .container td .xoa{
         background-color: #d9534f;
     }
+    tr:nth-child(even) {
+        background-color: #fff;
+    }
     </style>
 </head>
 <body>

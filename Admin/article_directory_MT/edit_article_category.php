@@ -10,8 +10,8 @@
             color: #333;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
+            /* display: flex;
+            justify-content: center; */
             margin: 4% 0;
             height: auto;
         }
@@ -24,9 +24,14 @@
             height: auto;
         } */
         .container {
-            width: 80%;
+            width: 70%;
             margin: 0 auto;
             overflow: hidden;
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
         }
         h1 {
             text-align: center;

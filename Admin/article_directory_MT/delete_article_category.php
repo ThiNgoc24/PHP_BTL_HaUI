@@ -31,9 +31,14 @@ if (isset($_GET['id'])) {
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 } */
                 .container {
-                    width: 80%;
+                    width: 60%;
                     margin: 0 auto;
                     overflow: hidden;
+                    background-color: #fff;
+                    padding: 20px 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    margin-top: 30px;
                 }
                 h1 {
                     color: #333;
