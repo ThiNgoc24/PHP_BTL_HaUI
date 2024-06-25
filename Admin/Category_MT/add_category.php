@@ -106,7 +106,7 @@
             <input type="submit" value="Thêm">
         </form>
                 <div style="display: flex; justify-content: center; margin-top: 15px;">
-                    <a href='Article_category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
+                    <a href='Category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
                 </div>
     </div>
 </body>
