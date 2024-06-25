@@ -40,7 +40,109 @@ if(isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-details h1 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            text-align: left;
+        }
+
+        .product-details p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #666;
+
+        }
+
+        .product-actions {
+            margin-top: 20px;
+        }
+
+        .product-actions button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            transition: background-color 0.3s;
+        }
+
+        .product-actions button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-description {
+            flex-basis: 100%;
+            margin-top: 20px;
+            line-height: 1.6; /* Thêm thuộc tính line-height */
+        }
+
+        .product-description h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .product-description p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6; /* Thêm thuộc tính line-height */
+        }
+
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 <body>
 <div class="product-container">
