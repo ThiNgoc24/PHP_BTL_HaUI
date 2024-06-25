@@ -5,25 +5,34 @@
     <title>Thêm Danh mục Bài viết</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            /* font-family: Arial, sans-serif; */
             background-color: #f8f9fa;
-            color: #333;
+            /* color: #333; */
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
             margin-top: 50px;
         }
-        .container {
+        /* .container {
             background-color: #fff;
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
+        } */
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h2 {
+
+        h1 {
             text-align: center;
-            color: #007bff;
+            color: #000;
         }
         .message {
             text-align: center;
@@ -69,8 +78,9 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
-        <h2>Thêm danh mục bài viết</h2>
+        <h1>Thêm danh mục bài viết</h1>
         <?php
         if (isset($_GET['success']) && $_GET['success'] == 1) {
             echo "<div class='message'>Thêm danh mục bài viết thành công</div>";
@@ -91,10 +101,10 @@
             <br>
             <input type="submit" value="Thêm">
         </form>
-                <div style="display: flex; justify-content: center; margin-top: 15px;">
-                    <a href='Article_category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
-                </div>
-
+        <div style="display: flex; justify-content: center; margin-top: 15px;">
+            <a href='Article_category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
+        </div>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

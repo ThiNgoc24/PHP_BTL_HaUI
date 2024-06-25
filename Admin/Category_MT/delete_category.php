@@ -17,20 +17,22 @@ if (isset($_GET['id'])) {
             <style>
                 body {
                     font-family: Arial, sans-serif;
-                    background-color: #f0f0f0;
                     margin: 0;
-                    padding: 20px;
+                    padding: 0;
+                    background-color: #f4f4f4;
                 }
+
                 .container {
-                    max-width: 600px;
-                    margin: 20px auto;
+                    width: 70%;
+                    margin: 0 auto;
+                    overflow: hidden;
                     background-color: #fff;
                     padding: 20px;
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
+                    border-radius: 10px;
+                    margin-top: 50px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
-                h2 {
+                h1 {
                     color: #333;
                     text-align: center;
                 }
@@ -84,8 +86,9 @@ if (isset($_GET['id'])) {
             </script>
         </head>
         <body>
+            <?php include "../Admin_dashboard/Header_Sidebar.php"?>
             <div class="container">
-                <h2>Xác nhận Xóa Danh mục Sản phẩm</h2>
+                <h1>Xác nhận xóa danh mục sản phẩm</h1>
                 <p>Bạn chắc chắn muốn xóa danh mục sản phẩm này?</p>
                 <p><strong>Thông tin danh mục:</strong></p>
                 <p><strong>Tên:</strong> <?php echo $category['name']; ?></p>
@@ -97,6 +100,7 @@ if (isset($_GET['id'])) {
                     <a href='Article_category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
                 </div>
             </div>
+            <?php include "../Admin_dashboard/Footer.php"?>
         </body>
         </html>
         <?php

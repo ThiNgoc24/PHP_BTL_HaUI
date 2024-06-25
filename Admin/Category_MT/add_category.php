@@ -6,24 +6,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
+            background-color: #f4f4f4;
         }
+
         .container {
+            width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
             background-color: #fff;
-            padding: 20px 30px;
+            padding: 20px;
             border-radius: 10px;
+            margin-top: 50px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
         }
-        h2 {
+
+        h1 {
             text-align: center;
-            color: #007bff;
+            color: #000;
         }
         .message {
             text-align: center;
@@ -83,8 +84,9 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
-        <h2>Thêm Danh mục Sản phẩm</h2>
+        <h1>Thêm danh mục sản phẩm</h1>
         <?php
         if (isset($_GET['success']) && $_GET['success'] == 1) {
             echo "<div class='message'>Thêm danh mục sản phẩm thành công</div>";
@@ -106,8 +108,9 @@
             <input type="submit" value="Thêm">
         </form>
                 <div style="display: flex; justify-content: center; margin-top: 15px;">
-                    <a href='Article_category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
+                    <a href='Category_page.php' class="back-link" style="text-decoration: none; color: #007bff;">Quay lại</a>
                 </div>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

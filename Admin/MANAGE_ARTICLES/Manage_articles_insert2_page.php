@@ -8,7 +8,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Thêm bài viết mới</title>
     <style>
-        /* CSS cho phần nội dung */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
         .container {
             width: 70%;
             margin-left: 300px; 

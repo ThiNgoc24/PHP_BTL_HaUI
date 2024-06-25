@@ -10,10 +10,20 @@
     <!-- Thư viện ApexCharts để vẽ biểu đồ -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
         .container {
             width: 75%;
             margin-left: 300px;
-           
+        }
+
+        .table_content{
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .container table {
             width: 100%;
@@ -51,21 +61,18 @@
         .container input[type=submit]:hover {
             background-color: #45a049;
         }
-         .add-button a{
-            width: 150px;
+        .add-button a{
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
             text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            font-size: 20px;
-            font-weight: bold;
-            margin-left: 850px;
-            margin-top: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         .add-button a:hover{
-            
-            color: #007bff; /* Màu chữ khi hover */
-            border-radius: 5px; 
+            background-color: #0056b3;
         }
         .container .trangchu {
             width: 100px;
@@ -105,43 +112,43 @@
 <body>
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container" id="content">
-    <a href="../MANAGE_INDEX/Manage_index_page.php" class="trangchu">Trang chủ</a>
-    <h2 style='margin-left:400px;margin-top:-40px; font-size:30px; color:#007bff'>Quản lý bài viết</h2>  
-        <!-- Danh sách các bài viết -->
-      
-        <table>
+        <h2 style='margin-left:400px; font-size:30px; color:#007bff'>Quản lý bài viết</h2>  
+            <!-- Danh sách các bài viết -->
         <div class="add-button">
             <a href="Manage_articles_insert_page.php">Thêm bài viết</a>
         </div>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên bài viết</th>
-                    <th>Tóm tắt</th>
-                    <th>Trạng thái</th>
-                    <th>Thao tác</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    // Lấy danh sách bài viết từ database và hiển thị
-                    include '../../conn_db.php';
-                    require_once 'Manage_articles_functions.php'; // Sử dụng file hàm xử lý
+        <div class="table_content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên bài viết</th>
+                        <th>Tóm tắt</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        // Lấy danh sách bài viết từ database và hiển thị
+                        include '../../conn_db.php';
+                        require_once 'Manage_articles_functions.php'; // Sử dụng file hàm xử lý
 
-                    // Hiển thị danh sách bài viết
-                    $articles = getAllArticles();
-                    foreach ($articles as $article) {
-                        echo '<tr>';
-                        echo '<td>' . $article['id'] . '</td>';
-                        echo '<td>' . $article['name'] . '</td>';
-                        echo '<td>' . $article['summary'] . '</td>';
-                        echo '<td>' . ($article['status'] == 1 ? 'Hiển thị' : 'Ẩn') . '</td>';
-                        echo '<td><a href="Manage_articles_update_page.php?id=' . $article['id'] . '">Sửa</a> <a class="xoa" name="xoa" href="javascript:void(0);" onclick="confirmDelete(' . $article['id'] . ');">Xóa</a></td>';
-                        echo '</tr>';
-                    }
-                ?>
-            </tbody>
-        </table>
+                        // Hiển thị danh sách bài viết
+                        $articles = getAllArticles();
+                        foreach ($articles as $article) {
+                            echo '<tr>';
+                            echo '<td>' . $article['id'] . '</td>';
+                            echo '<td>' . $article['name'] . '</td>';
+                            echo '<td>' . $article['summary'] . '</td>';
+                            echo '<td>' . ($article['status'] == 1 ? 'Hiển thị' : 'Ẩn') . '</td>';
+                            echo '<td><a href="Manage_articles_update_page.php?id=' . $article['id'] . '">Sửa</a> <a class="xoa" name="xoa" href="javascript:void(0);" onclick="confirmDelete(' . $article['id'] . ');">Xóa</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </tbody>
+            </table>    
+        </div>
     </div>
 
     <?php include "../Admin_dashboard/Footer.php"?>

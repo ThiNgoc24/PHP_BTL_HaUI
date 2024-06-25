@@ -8,7 +8,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cập nhật bài viết</title>
     <style>
-        /* CSS cho phần nội dung */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
         .container {
             width: 70%;
             margin-left: 300px; /* Điều chỉnh khoảng cách của nội dung so với sidebar */
@@ -133,7 +138,6 @@ if (isset($_GET['id'])) {
 <body>
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
-    <a href="../MANAGE_INDEX/Manage_index_page.php" class="trangchu">Trang chủ</a>
         <h1 style='margin-left:350px; font-size:30px; color:#007bff'>Cập nhật bài viết</h1>
         <form action="Manage_articles_functions.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo isset($current_article['id']) ? htmlspecialchars($current_article['id']) : ''; ?>">

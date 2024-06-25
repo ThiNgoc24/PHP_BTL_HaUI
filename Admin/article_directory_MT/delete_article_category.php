@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
                     margin: 0;
                     padding: 20px;
                 }
-                .container {
+                /* .container {
                     max-width: 600px;
                     margin: 20px auto;
                     background-color: #fff;
@@ -29,8 +29,13 @@ if (isset($_GET['id'])) {
                     border: 1px solid #ddd;
                     border-radius: 8px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                } */
+                .container {
+                    width: 80%;
+                    margin: 0 auto;
+                    overflow: hidden;
                 }
-                h2 {
+                h1 {
                     color: #333;
                     text-align: center;
                 }
@@ -84,8 +89,9 @@ if (isset($_GET['id'])) {
             </script>
         </head>
         <body>
+            <?php include "../Admin_dashboard/Header_Sidebar.php"?>
             <div class="container">
-                <h2>Xác nhận Xóa Danh mục Bài viết</h2>
+                <h1>Xác nhận xoá danh mục bài viết</h1>
                 <p>Bạn chắc chắn muốn xóa danh mục bài viết này?</p>
                 <p><strong>Thông tin danh mục:</strong></p>
                 <p><strong>Tên:</strong> <?php echo $category['name']; ?></p>
@@ -99,6 +105,7 @@ if (isset($_GET['id'])) {
 
 
             </div>
+            <?php include "../Admin_dashboard/Footer.php"?>
         </body>
         </html>
         <?php

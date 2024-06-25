@@ -15,17 +15,22 @@
             margin: 4% 0;
             height: auto;
         }
-        .container {
+        /* .container {
             background-color: #fff;
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
             height: auto;
+        } */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
         }
-        h2 {
+        h1 {
             text-align: center;
-            color: #007bff;
+            color: #000;
         }
         .message {
             text-align: center;
@@ -88,8 +93,9 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
-        <h2>Sửa danh mục bài viết</h2>
+        <h1>Sửa danh mục bài viết</h1>
         <?php
         include '../../conn_db.php';
         include 'Article_category_data.php';
@@ -128,5 +134,6 @@
         }
         ?>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

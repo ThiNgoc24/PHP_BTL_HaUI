@@ -15,14 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách đơn hàng</title>
     <style>
-        /* body {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        } */
+            /* padding: 20px; */
+        }
         .container {
             width: 80%;
             /* margin-left: 220px; */

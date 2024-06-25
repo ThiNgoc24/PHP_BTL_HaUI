@@ -6,26 +6,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            margin: 4% 0;
-            height: auto;
+            background-color: #f4f4f4;
         }
+
         .container {
+            width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
             background-color: #fff;
-            padding: 20px 30px;
+            padding: 20px;
             border-radius: 10px;
+            margin-top: 50px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            height: auto;
         }
-        h2 {
+
+        h1 {
             text-align: center;
-            color: #007bff;
+            color: #000;
         }
         .message {
             text-align: center;
@@ -63,14 +62,14 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        a {
+        .btn_quaylai {
             color: #007bff;
             text-decoration: none;
             display: block;
             text-align: center;
             margin-top: 20px;
         }
-        a:hover {
+        .btn_quaylai:hover {
             text-decoration: underline;
         }
         .btn-back {
@@ -88,8 +87,9 @@
     </style>
 </head>
 <body>
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
-        <h2>Sửa Danh mục Bài viết</h2>
+        <h1>Sửa danh mục bài viết</h1>
         <?php
         include '../../conn_db.php';
         include 'Category_data.php';
@@ -119,7 +119,7 @@
             </div>
             <br>
             <input type='submit' value='Cập nhật'>
-            <a href='Category_page.php'>Quay lại</a>
+            <a class='btn_quaylai' href='Category_page.php'>Quay lại</a>
             </form>";
 
 
@@ -128,5 +128,6 @@
         }
         ?>
     </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>

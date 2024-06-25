@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <title>Quản lý Danh mục Sản phẩm</title>
     <style>
-        /* style.css */
-
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        h2 {
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1 {
             text-align: center;
             color: #333;
         }
 
+        .table_content{
+            max-height: 80vh;
+            overflow-y: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -96,40 +104,47 @@
     <link rel="stylesheet" href="../Show_category/style.css">
 </head>
 <body>
-    <h2>Quản lý Danh mục Sản Phẩm</h2>
-    <a href="add_category.php" class="btn btn-add">Thêm mới</a>
-    <br><br>
-    <table>
-        <tr>
-            <th>Mã</th>
-            <th>Tên danh mục</th>
-            <th>Trạng thái</th>
-            <th></th>
-        </tr>
-        <?php
-        include '../../conn_db.php';
-        include 'Category_data.php';
+    <?php include "../Admin_dashboard/Header_Sidebar.php"?>
+    <div class="container">
+        <h1>Quản lý danh mục sản phẩm</h1>
+        <a href="add_category.php" class="btn btn-add">Thêm mới</a>
+        <br><br>
+        <div class="table_content">
+            <table>
+                <tr>
+                    <th>Mã</th>
+                    <th>Tên danh mục</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
+                <?php
+                include '../../conn_db.php';
+                include 'Category_data.php';
 
-        $result = getAllCategories();
+                $result = getAllCategories();
 
-        if (!empty($result)) {
-            foreach ($result as $row) {
-                // Chuyển đổi giá trị status từ 0, 1 sang "Bị ẩn" và "Đang hiển thị"
-                $statusText = $row["status"] == 1 ? "Đang hiển thị" : "Bị ẩn";
-                echo "<tr>
-                        <td>".$row["id"]."</td>
-                        <td>".$row["name"]."</td>
-                        <td>".$statusText."</td>
-                        <td>
-                            <a href='edit_category.php?id=".$row["id"]."' class='btn btn-edit'>Sửa</a>
-                            <a href='delete_category.php?id=".$row["id"]."' class='btn btn-delete'>Xóa</a>
-                        </td>
-                      </tr>";
-            }
-        } else {
-            echo "<tr><td colspan='4'>0 results</td></tr>";
-        }
-        ?>
-    </table>
+                if (!empty($result)) {
+                    foreach ($result as $row) {
+                        // Chuyển đổi giá trị status từ 0, 1 sang "Bị ẩn" và "Đang hiển thị"
+                        $statusText = $row["status"] == 1 ? "Đang hiển thị" : "Bị ẩn";
+                        echo "<tr>
+                                <td>".$row["id"]."</td>
+                                <td>".$row["name"]."</td>
+                                <td>".$statusText."</td>
+                                <td>
+                                    <a href='edit_category.php?id=".$row["id"]."' class='btn btn-edit'>Sửa</a>
+                                    <a href='delete_category.php?id=".$row["id"]."' class='btn btn-delete'>Xóa</a>
+                                </td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>0 results</td></tr>";
+                }
+                ?>
+            </table>
+        </div>
+        
+    </div>
+    <?php include "../Admin_dashboard/Footer.php"?>
 </body>
 </html>
