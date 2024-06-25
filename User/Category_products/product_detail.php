@@ -7,7 +7,12 @@ $message = '';
 // Check if product id is passed in URL
 if (isset($_GET['id'])) {
     $product_id = intval($_GET['id']);
-    $category_id = intval($_GET['cateID']);
+    if(empty($_GET['cateID'])){
+        $category_id = '';
+    }else{
+        $category_id = intval($_GET['cateID']);
+    }
+    
 
     // Query product details from products table
     $sql = "SELECT p.id, p.name, p.price, p.image, p.description, p.product_quantity,

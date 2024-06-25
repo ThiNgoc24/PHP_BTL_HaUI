@@ -82,11 +82,10 @@
         }
 
         .login-link {
-            color: #333;
-            text-decoration: none;
             font-weight: bold;
-            display: block;
+            display: inline-block;
             margin-top: 20px;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -180,7 +179,7 @@
         <div class="image-container">
             <!-- <img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/06/Sach-hay.jpg" alt="Đăng ký"> -->
             <img src="../../images/signup-image.jpg" alt="Đăng ký">
-            <a href="DangNhap.php" class="login-link">Đã có tài khoản? Đăng nhập ngay!</a>
+            <p>Bạn đã có tài khoản?<a href="../../Login/login_page.php" class="login-link">Đăng nhập ngay!</a></p>
         </div>
     </div>
     <?php if (isset($registerMessage) && !empty($registerMessage)): ?>

@@ -1,5 +1,5 @@
 <?php
-    include_once "../../conn_db.php"; //Thiết lập đường dẫn tương đối
+    include_once "../../conn_db.php"; 
     function getCartItems($memberID){
         $sql = "SELECT * FROM `cart` WHERE `member_id` = '{$memberID}'";
         return queryDatabase($sql);
@@ -41,7 +41,7 @@
     
     function decreaseCartItemQuantity($memberID, $productID) {
         $currentQuantity = getCartItemQuantity($memberID, $productID);
-        if ($currentQuantity > 1) { // Không giảm xuống dưới 1
+        if ($currentQuantity > 1) { 
             updateCartItemQuantity($memberID, $productID, $currentQuantity - 1);
         }
     }

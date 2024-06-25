@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once "../../conn_db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -360,15 +364,15 @@
 </head>
 <body>
     <header>
-        <div class="top-header">
+        <!-- <div class="top-header">
             <div class="contact-info">
                 <p>nhom1StarBook@gmail.com</p>
             </div>
             <div class="auth-links">
-                <a href="#">Đăng ký </a>
-                <a href="#">Đăng nhập</a>
+                <a href="../Register/DangKy_page.php">Đăng ký </a>
+                <a href="../../Login/login_page.php">Đăng nhập</a>
             </div>
-        </div>
+        </div> -->
         <div class="main-header">
             <div class="logo">
                 <img src="../../images/logo_new.png" alt="Logo">
@@ -377,14 +381,22 @@
                 <ul>
                     <li><a href="home.php">HOME</a></li>
                     <li><a href="../detail/list_pd.php">SÁCH</a></li>
-                    <li><a href="#">GIỎ HÀNG</a></li>
-                    <li><a href="#">BÀI VIẾT</a></li>
+                    <li><a href="#">TÁC GIẢ</a></li>
+                    <li><a href="../Article_category_user/categories.php">BÀI VIẾT</a></li>
                     <li><a href="#">LIÊN HỆ</a></li>
                 </ul>
             </nav>
             <div class="extra-links">
-                <a href="#">Sản phẩm yêu thích</a>
-                <a href="#">Giỏ hàng</a>
+                <?php if (!empty($_SESSION['id'])): ?>
+                    <a class="hello" href="#">
+                        Hello <?php echo htmlspecialchars($_SESSION['username']); ?>
+                    </a>
+                    <a href="../Cart/cart_page.php">Giỏ hàng</a>
+                    <a href="../../Logout/logout.php">Đăng xuất</a>
+                <?php else: ?>
+                    <a href="../../Login/login_page.php">Đăng nhập</a>
+                    <a href="../Cart/cart_page.php">Giỏ hàng</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -411,7 +423,7 @@
                 <div class="top">
                     <div class="search">
                 
-                        <form action="../xemtheodm/search_results.php" method="get">
+                        <form action="../Search/search_results.php" method="get">
                             <input type="text" name="search_query" placeholder="Nhập tên sản phẩm">
                             <button type="submit">Tìm kiếm</button>
                         </form>
@@ -504,5 +516,18 @@
             <p> © 2024 | Nhóm 1 - 20232IT6022003</p>
         </div>
     </footer>
+    <!-- <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var cartLink = document.getElementById("cart-link");
+            cartLink.addEventListener("click", function(event) {
+                event.preventDefault(); 
+                <?php if (isset($_SESSION['username'])): ?>
+                    window.location.href = "../Cart/cart_page.php"; 
+                <?php else: ?>
+                    window.location.href = "../../Login/login_page.php"; 
+                <?php endif; ?>
+            });
+        });
+    </script> -->
 </body>
 </html>

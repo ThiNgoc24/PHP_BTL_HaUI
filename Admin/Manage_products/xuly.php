@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $target = "images/" . basename($image);
         move_uploaded_file($_FILES['image']['tmp_name'], $target); */
         $image = $_FILES['image']['name'];
-        $target_dir = "../images/";
+        $target_dir = "../../images/";
         $target_file = $target_dir . basename($image);
         move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
     } else {

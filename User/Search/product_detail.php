@@ -7,7 +7,7 @@ $message = '';
 // Kiểm tra xem có tham số id của sản phẩm được truyền qua URL không
 if(isset($_GET['id'])) {
     $product_id = intval($_GET['id']);
-
+    // $search = $_GET['search_query'];
     // Truy vấn chi tiết sản phẩm từ bảng products
     $sql = "SELECT p.id, p.name, p.price, p.image, p.description, p.product_quantity,
                    a.name AS author_name,
@@ -162,7 +162,7 @@ if(isset($_GET['id'])) {
                 <p><?php ?></p>
             </div>
         <?php endif; ?>
-        <p><a href="list_pd.php" class="back-btn">Quay lại</a></p>
+        <p><a href="search_results.php" class="back-btn">Quay lại</a></p>
     </div>
 </body>
 </html>

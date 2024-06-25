@@ -1,18 +1,19 @@
 <?php
-    include "cart_functions.php";
-    // include "màn hình trang chủ.php"; //Bổ sung sau
     session_start();
-    // if(!isLoggedin()){
-    //     header('Location: login_page.php'); //Khi click vào icon cart => nếu chưa login thì điều hướng đến màn Login
-    //     exit;
-    // }
-    $_SESSION['member_id'] = 10; //dùng tạm thời
-    $cartItems = getCartItems($_SESSION['member_id']); //Đợi chức năng đăng nhập và trả về member_id để dùng
-    $totalCart = getTotalCart($_SESSION['member_id']);
+    include "cart_functions.php";
+    
+     // Kiểm tra xem người dùng đã đăng nhập hay chưa
+    if (!isset($_SESSION['id'])) {
+        header("Location: ../../Login/login_page.php");
+        exit();
+    }
+    // $_SESSION['member_id'] = 10; //dùng tạm thời
+    $cartItems = getCartItems($_SESSION['id']); //Đợi chức năng đăng nhập và trả về member_id để dùng
+    $totalCart = getTotalCart($_SESSION['id']);
     // Xử lý tăng số lượng
     if (isset($_POST['increase_quantity'])) {
         $productId = $_POST['product_id'];
-        increaseCartItemQuantity($_SESSION['member_id'], $productId);
+        increaseCartItemQuantity($_SESSION['id'], $productId);
         header('Location: cart_page.php'); 
         exit;
     }

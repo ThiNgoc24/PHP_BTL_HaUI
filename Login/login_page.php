@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 500px;
         }
         h1 {
             text-align: center;
@@ -30,12 +31,13 @@
         label {
             display: block;
             margin-bottom: 5px;
+            /* padding: 10px; */
         }
         input[type="text"],
         input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
+            margin: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
@@ -119,10 +121,10 @@
             <input type="submit" value="Đăng nhập" class="btn-submit" name="btn_login" id="btn_login">
         </form>
         <div class="btn-forgot">
-            <a href="#">Quên mật khẩu?</a>
+            <a href="../User/Forget_Password/Forget_page.php">Quên mật khẩu?</a>
         </div>
         <div class="btn-register">
-            <a href="#">Đăng ký</a>
+            <a href="../User/Register/DangKy_page.php">Đăng ký</a>
         </div>
     </div>
    
