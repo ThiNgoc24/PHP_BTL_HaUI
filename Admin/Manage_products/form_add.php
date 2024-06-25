@@ -5,7 +5,84 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm sản phẩm</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+        }
+        .add-product-form {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .add-product-form .gop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .add-product-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .add-product-form input[type="text"],
+        .add-product-form input[type="number"],
+        .add-product-form select,
+        .add-product-form textarea,
+        .add-product-form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .add-product-form textarea {
+            height: 100px;
+        }
+
+        .add-product-form .btn-submit {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-product-form .btn-submit:hover {
+            background-color: #007bff;
+        }
+
+        .add-product-form input[type="file"] {
+            padding: 0;
+            border: none;
+        }
+        .add-product-form .button-ql .btn-ql {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-product-form .button-ql .btn-ql:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body style="margin: 20px; background-color: #f5f5f5;">
     <h1 style="text-align: center; color: #333;">Thêm sản phẩm</h1>

@@ -20,7 +20,95 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Product</title>
-    <link rel="stylesheet" href="../css/styles.css"> 
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+        }
+        .edit-product-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-product-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .edit-product-form input[type="text"],
+        .edit-product-form input[type="number"],
+        .edit-product-form textarea,
+        .edit-product-form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .edit-product-form textarea {
+            height: 100px;
+        }
+
+        .gop2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-update {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-ql {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-update:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-ql:hover {
+            background-color: #218838;
+        }
+
+        .edit-product-form input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-product-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
 </head>
 <body style="margin: 20px; background-color: #f5f5f5;">
     <h1 style="text-align: center; color: #333;">Cập nhật sản phẩm</h1>

@@ -5,8 +5,127 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Management</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .tieudesp {
+            text-align: center;
+            color: #333;
+        }
+
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+        .btn-add, .btn-ql {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-ql {
+            background-color: #007bff;
+        }
+
+        .btn-add:hover {
+            background-color: #218838;
+        }
+
+        .btn-ql:hover {
+            background-color: #0056b3;
+        }
+
+
+
+        .btn-add:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto;
+        }
+
+        .table-container{
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+
+        .product-table td img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto; 
+        }
+
+        .product-table td a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .product-table td a:hover {
+            color: #0056b3;
+        }
+
+        .product-table td {
+            word-wrap: break-word; /* Allow product names to wrap */
+            max-width: 200px; /* Adjust as needed */
+        }
+
+        .product-table th, .product-table td {
+            vertical-align: middle; /* Center align content vertically */
+        }
+
+        .product-table td:last-child {
+            white-space: nowrap; /* Prevent wrapping for action column */
+        }
+
+        .product-table {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
         .action-links {
             white-space: nowrap;
             text-align: center;
