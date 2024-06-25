@@ -156,8 +156,8 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <ul>
-            <li><a href="../Category_MT/Category_page.php">Bảo trì danh mục sản phẩm</a></li>
-            <li><a href="../article_directory_MT/Article_category_page.php">Bảo trì danh mục bài viết</a></li>
+            <li><a href="../Manage_products/index.php">Bảo trì danh mục sản phẩm</a></li>
+            <li><a href="#">Bảo trì danh mục bài viết</a></li>
             <li><a href="../Manage_Authors/list_page.php">Bảo trì tác giả</a></li>
             <li><a href="#">Bảo trì sản phẩm</a></li>
             <li><a href="../MANAGE_ARTICLES/Manage_articles_page.php">Bảo trì bài viết</a></li>
