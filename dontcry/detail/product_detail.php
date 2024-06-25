@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 // Biến để lưu thông báo khi không tìm thấy sản phẩm
 $message = '';

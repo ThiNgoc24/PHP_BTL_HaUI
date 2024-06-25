@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "starbook_db";
+$dbname = "starbook_database";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 // Variable to store message when no product is found
 $message = '';

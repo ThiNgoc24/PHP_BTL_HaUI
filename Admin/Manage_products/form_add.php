@@ -1,4 +1,4 @@
-<?php include '../conn_db.php'; ?>
+<?php include '../conn_db2.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

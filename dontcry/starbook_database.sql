@@ -7,7 +7,7 @@
 -- Phiên bản máy phục vụ: 8.0.17
 -- Phiên bản PHP: 7.3.10
 
---TÊN DB BẢN ĐÚP: starbook_db
+--TÊN DB BẢN ĐÚP: starbook_database
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `starbook_databse`
+-- Cơ sở dữ liệu: `starbook_database`
 --
 
 -- --------------------------------------------------------

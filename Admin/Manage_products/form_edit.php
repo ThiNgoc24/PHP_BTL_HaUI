@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);

@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 // Số sản phẩm trên mỗi trang
 $products_per_page = 20;

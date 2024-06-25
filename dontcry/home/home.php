@@ -3,10 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Trang Chủ</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            background-color: #5ba3eb;
+            color: #ffffff;
+            height: 35px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+
+        .logo img {
+            max-width: 170px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 35px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: none;
+            color: #0e4894;
+            font-weight: bold;
+        }
+
+        .extra-links {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .extra-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .extra-links a:hover{
+            text-decoration: none;
+            color: #0e4894;
+            margin-left: 20px;
+            font-weight: bold;
+        }
     .bottom2 {
             width: 80%;
             margin: 0 auto;
@@ -59,7 +151,7 @@
         </div>
     </header>
 
-    <?php include '../conn_db.php'; ?>
+    <?php include '../conn_db2.php'; ?>
     <main>
         <div class="container1">
             <div class="left-sidebar">
@@ -96,7 +188,7 @@
             </div>
         </div>
         <?php
-            include '../conn_db.php';
+            include '../conn_db2.php';
 
             // Fetch authors from the database
             $author_sql = "SELECT id, name, image FROM authors WHERE status = 1";

@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 

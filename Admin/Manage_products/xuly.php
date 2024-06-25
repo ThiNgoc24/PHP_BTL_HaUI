@@ -1,5 +1,5 @@
 <?php
-include '../conn_db.php';
+include '../conn_db2.php';
 
 //edit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
