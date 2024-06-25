@@ -11,6 +11,12 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
         /* CSS để style biểu đồ */
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
         #chart {
             max-width: 800px;
             margin-left: 400px;

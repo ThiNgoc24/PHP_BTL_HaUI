@@ -160,13 +160,12 @@
         }
     </style>
 </head>
-<body style="margin: 20px;">
+<body>
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container">
         <h1 class="tieudesp">Bảo trì sản phẩm</h1>
         <div class="button-container">
             <a href="form_add.php" class="btn-add">Thêm mới</a>
-            <a href="index.php" class="btn-ql">Quay lại</a>
         </div>
         <div class="table-container">
             <table class="product-table">
