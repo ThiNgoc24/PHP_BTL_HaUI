@@ -5,7 +5,7 @@
      // Kiểm tra xem người dùng đã đăng nhập hay chưa
     if (!isset($_SESSION['id'])) {
         header("Location: ../../Login/login_page.php");
-        exit();
+        exit;
     }
     // $_SESSION['member_id'] = 10; //dùng tạm thời
     $cartItems = getCartItems($_SESSION['id']); //Đợi chức năng đăng nhập và trả về member_id để dùng
@@ -36,15 +36,28 @@
 
     // Xử lý xóa toàn bộ giỏ hàng (cần xác nhận trước khi thực hiện)
     if (isset($_POST['clear_cart'])) {
-        if (confirmClearCart()) { // Hàm này bạn cần tự định nghĩa để hiển thị hộp thoại xác nhận
-            clearCart($_SESSION['member_id']);
-            header('Location: cart_page.php'); 
-            exit;
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "starbook_database";
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
+
+        $sql = "DELETE FROM `cart` WHERE `member_id` = {$_SESSION['id']}";
+        if($conn->query($sql)){
+            header("Location: cart_page.php");
+        }else{
+            echo "Có lỗi xảy ra. Vui lòng thử lại";
+        }
+        $conn->close();
     }
 
     if(isset($_POST['continue_shopping'])){
-        header('Location: home_page.php');//phát triển sau
+        header('Location: ../detail/list_pd.php');
         exit;
     }
 
@@ -52,8 +65,6 @@
         header('Location: ../Order/order_form.php');
         exit;
     }
-
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,12 +73,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="cart_page.css">
+    <style>
+        .btn_return a{
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
+        .btn_return{
+            padding: 10px 20px;
+            /* margin-right: 10px; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .btn_return:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="main_content">
         <h1>Giỏ hàng</h1>
         <?php if (empty($cartItems)): ?>
             <p>Giỏ hàng trống</p>
+            <p class="btn_return"><a href="../Home/Home_page.php">Quay về trang chủ</a></p>
         <?php else: ?>
             <table>
                 <tr>

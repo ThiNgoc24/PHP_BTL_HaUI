@@ -5,8 +5,3 @@ Tên chủ thẻ	NGUYEN VAN A
 Ngày phát hành	07/15
 Mật khẩu OTP	123456
 
-====Tài khoản đăng nhập có giỏ hàng=====
-username: minh11
-password: e10adc3949ba59abbe56e057f20f883e
-
-==

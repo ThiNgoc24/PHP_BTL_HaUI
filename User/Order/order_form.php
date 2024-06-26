@@ -1,7 +1,9 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include '../Cart/cart_functions.php';
 include "order_functions.php";
-session_start();
 $_SESSION['member_id'] = 10;
 $order_methods = getOrderMethod();
 ?>
@@ -58,7 +60,7 @@ $order_methods = getOrderMethod();
                 </div>
 
                 <div class="form-submit">
-                    <button><a href="../Cart/cart_page?<?php echo $_SESSION['member_id'];?>">Quay lại</a></button>
+                    <button><a href="../Cart/cart_page.php">Quay lại</a></button>
                     <input id="btnOrder" type="submit" name="redirect" value="Đặt hàng ngay"></input>
                 </div>
             </form>

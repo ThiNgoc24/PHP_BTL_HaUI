@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conn_db2.php';
 
 // Số sản phẩm trên mỗi trang

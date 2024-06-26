@@ -72,7 +72,7 @@
     <div class="thank-you-container">
         <h3><?php echo $message_vnp;?></h3>
         <h3>Cảm ơn bạn đã mua hàng, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</h3>
-        <a href="#" class="continue-shopping-btn">Tiếp tục mua hàng</a> <!-- Bổ sung link tới trang chủ -->
+        <a href="../Home/Home_page.php" class="continue-shopping-btn">Tiếp tục mua hàng</a> <!-- Bổ sung link tới trang chủ -->
     </div>
 </body>
 </html>

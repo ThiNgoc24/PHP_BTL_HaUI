@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conn_db2.php';
 
 // Variable to store message when no product is found
@@ -93,7 +94,7 @@ if (isset($_GET['id'])) {
         .product-actions {
             margin-top: 20px;
         }
-        .product-actions button {
+        .cart-btn{
             padding: 10px 20px;
             margin-right: 10px;
             border: none;
@@ -104,7 +105,7 @@ if (isset($_GET['id'])) {
             background-color: #007bff;
             transition: background-color 0.3s;
         }
-        .product-actions button:hover {
+        .cart-btn:hover {
             background-color: #0056b3;
         }
         .product-description {
@@ -155,8 +156,11 @@ if (isset($_GET['id'])) {
                 <p><strong>Danh mục:</strong> <?php echo htmlspecialchars($product['category_name']); ?></p>
                 <p><strong>Số lượng:</strong> <?php echo $product['product_quantity']; ?></p>
                 <div class="product-actions">
-                    <button class="cart-btn">Thêm vào giỏ hàng</button>
-                    <button class="wishlist-btn">Thêm vào danh sách yêu thích</button>
+                    <form action="../Cart/cart_functions.php" method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $product_id?>">
+                        <input type="submit" class="cart-btn" name="cart-btn" value="Thêm vào giỏ hàng">
+                    </form>
+                    <!-- <button class="wishlist-btn">Thêm vào danh sách yêu thích</button> -->
                 </div>
             </div>
             <div class="product-description">

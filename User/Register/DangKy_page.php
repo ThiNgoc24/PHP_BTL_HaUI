@@ -136,7 +136,7 @@
                 if ($isValid) {
                     if (registerUser($username, $password, $fullname, $phonenumber, $address, $email)) {
                         $registerSuccess = true;
-                        $registerMessage = "Đăng ký thành công!";
+                        $registerMessage = "Đăng ký thành công! Vui lòng đăng nhập để tiếp tục trải nghiệm.";
                     } else {
                         $registerSuccess = false;
                         $registerMessage = "Đăng ký thất bại!";
@@ -182,7 +182,12 @@
             <p>Bạn đã có tài khoản?<a href="../../Login/login_page.php" class="login-link">Đăng nhập ngay!</a></p>
         </div>
     </div>
-    <?php if (isset($registerMessage) && !empty($registerMessage)): ?>
+    <?php if ($registerSuccess): ?>
+        <script>
+            alert('<?php echo $registerMessage; ?>');
+            window.location.href = '../../Login/login_page.php';
+        </script>
+    <?php elseif (!empty($registerMessage)): ?>
         <script>
             alert('<?php echo $registerMessage; ?>');
         </script>

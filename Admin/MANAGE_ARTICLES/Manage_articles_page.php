@@ -115,7 +115,7 @@
 <body>
     <?php include "../Admin_dashboard/Header_Sidebar.php"?>
     <div class="container" id="content">
-        <h2 style='margin-left:400px; font-size:30px; color:#007bff'>Quản lý bài viết</h2>  
+        <h2 style='margin-left:400px; font-size:30px; color:#000'>Bảo trì bài viết</h2>  
             <!-- Danh sách các bài viết -->
         <div class="add-button">
             <a href="Manage_articles_insert_page.php">Thêm bài viết</a>
