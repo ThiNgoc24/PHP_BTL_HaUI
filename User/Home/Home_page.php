@@ -1,6 +1,11 @@
 <?php
     session_start();
     include_once "../../conn_db.php";
+
+    // if (!isset($_SESSION['id']) || $_SESSION['id'] === null) {
+    //     $_SESSION['id'] = null; // Đặt session id thành null
+    //     $_SESSION['username'] = null; // Đặt session username thành null
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
