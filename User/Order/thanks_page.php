@@ -1,6 +1,9 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     include_once "../../conn_db.php";
-    session_start();
+    $message_vnp = "";
     if(isset($_GET['vnp_Amount'])){
         $vnp_Amount = $_GET['vnp_Amount'];
         $vnp_BankCode = $_GET['vnp_BankCode'];
@@ -11,7 +14,6 @@
         $vnp_TransactionNo = $_GET['vnp_TransactionNo'];
         $vnp_CardType = $_GET['vnp_CardType'];
         $order_id = $_SESSION['order_id'];
-        $message_vnp = "";
         $insert_vnpay = "insert into `vnpay`(vnp_Amount, vnp_BankCode, vnp_BankTranNo, vnp_CardType, vnp_OrderInfo, vnp_PayDate, vnp_TmnCode, vnp_TransactionNo, order_id)
                         value ('$vnp_Amount', '$vnp_BankCode', '$vnp_BankTranNo', '$vnp_CardType', '$vnp_OrderInfo', '$vnp_PayDate', '$vnp_TmnCode', '$vnp_TransactionNo', '$order_id')";
         if(executeQuery($insert_vnpay)){

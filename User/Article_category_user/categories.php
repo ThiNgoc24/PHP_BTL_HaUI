@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include 'categories_bll.php';
 $categories = getCategories();
 ?>
@@ -17,7 +20,7 @@ $categories = getCategories();
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 60%;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
@@ -26,18 +29,19 @@ $categories = getCategories();
         }
         h1 {
             font-size: 24px;
-            color: #333;
+            color: #000;
             margin-bottom: 20px;
+            text-align: center;
         }
         ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
-        li {
+        .container li {
             margin-bottom: 10px;
         }
-        li a {
+        .container li a {
             display: block;
             padding: 10px;
             text-decoration: none;
@@ -46,7 +50,7 @@ $categories = getCategories();
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
-        li a:hover {
+        .container li a:hover {
             background-color: #e0e0e0;
         }
         .footer {
@@ -54,9 +58,21 @@ $categories = getCategories();
             text-align: center;
             color: #666;
         }
+
+        .footer a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
+    <?php include "../Home/Header.php";?>
     <div class="container">
         <h1>Danh mục bài viết</h1>
         <ul>
@@ -71,6 +87,7 @@ $categories = getCategories();
             ?>
         </ul>
         <div class="footer">
+            <!-- <a href="../Home/Home_page.php">Quay lại trang chủ</a> -->
         </div>
     </div>
 </body>

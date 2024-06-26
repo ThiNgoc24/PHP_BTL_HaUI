@@ -1,41 +1,41 @@
-<?php
-session_start();
-include 'conn_db2.php';
 
-$search = isset($_GET['search']) ? $_GET['search'] : '';
-
-// Define variables for pagination
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$results_per_page = 10; // Number of results per page
-
-// Calculate the total number of results
-$sql_total = "SELECT COUNT(*) AS total FROM products WHERE status = 1";
-if (!empty($search)) {
-    $sql_total .= " AND name LIKE '%" . $conn->real_escape_string($search) . "%'";
-}
-$result_total = $conn->query($sql_total);
-$total_rows = $result_total->fetch_assoc()['total'];
-
-$total_pages = ceil($total_rows / $results_per_page);
-
-// Calculate the starting row for the query
-$start_from = ($page - 1) * $results_per_page;
-
-// Fetch the results for the current page
-$sql = "SELECT id, name, price, image FROM products WHERE status = 1";
-if (!empty($search)) {
-    $sql .= " AND name LIKE '%" . $conn->real_escape_string($search) . "%'";
-}
-$sql .= " LIMIT $start_from, $results_per_page";
-$result = $conn->query($sql);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kết quả tìm kiếm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm sản phẩm</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product li {
+            display: inline-block;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            margin: 5px;
+        }
+        .product li:last-child {
+            border-bottom: none;
+        }
         .btn-home {
             display: inline-block;
             margin-bottom: 20px;
@@ -45,7 +45,6 @@ $result = $conn->query($sql);
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
-            margin-left: 7rem;
         }
 
         .btn-home:hover {
@@ -101,66 +100,57 @@ $result = $conn->query($sql);
             background-color: #0056b3;
         }
 
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
         }
-
-        .pagination a {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 0 5px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .pagination a.active {
-            background-color: #0056b3;
-        }
-
-        .pagination a:hover {
-            background-color: #0056b3;
+        .product-price {
+            color: #007bff;
         }
     </style>
 </head>
-<body style="padding: 20px;">
-    <h1 style="text-align: center; margin-bottom: 20px; color: black;">Kết quả tìm kiếm</h1>
-    <a href="../Home/Home_page.php" class="btn-home">Home</a>
-    <div class="product-list-search">
+<body>
+    <?php include "../Home/Header.php";?>
+    <div class="container">
+        <h2>Kết quả tìm kiếm sản phẩm:</h2>
+        
+        <!-- <a href="../Home/Home_page.php" class="btn-home">Home</a> -->
         <?php
+        include 'conn_db2.php';
+        ini_set('display_errors', 0);
+        error_reporting(E_ERROR | E_WARNING | E_PARSE);
+        // Lấy từ khóa tìm kiếm từ URL
+        $search_query = $_GET['search_query'];
+
+        // Escape các ký tự đặc biệt để tránh SQL injection
+        $search_query = mysqli_real_escape_string($conn, $search_query);
+
+        // Truy vấn tìm kiếm sản phẩm
+        $sql = "SELECT * FROM products WHERE name LIKE '%$search_query%'";
+        $result = $conn->query($sql);
+
+        // Kiểm tra và hiển thị kết quả
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                if (stripos($row['name'], $search) !== false) {
+            echo "<ul class='product'>";
+            while($row = $result->fetch_assoc()) {
+                echo "<li>";
                     echo "<div class='product-item'>";
                     echo "<img src='../../images/" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['name']) . "'>";
                     echo "<div class='product-info'>";
                     echo "<h2>" . htmlspecialchars($row['name']) . "</h2>";
                     echo "<p style='color: red'><strong>" . number_format($row['price'], 0) . " VND</strong></p>";
-                    echo "<a href='product_detail.php?search_query={$search}&&id=" . htmlspecialchars($row['id']) . "' class='btn-view'>Chi tiết</a>";
+                    echo "<a href='product_detail.php?id=" . htmlspecialchars($row['id']) . "' class='btn-view'>Chi tiết</a>";
                     echo "</div>";
                     echo "</div>";
-                }
             }
+            echo "</ul>";
         } else {
-            echo "<p>Không tìm thấy sp.</p>";
+            echo "<p>Không tìm thấy sản phẩm nào phù hợp.</p>";
         }
+
+        // Đóng kết nối MySQL
+        $conn->close();
         ?>
-    </div>
-    <div class="pagination">
-        <?php if($page > 1): ?>
-            <a href="?search=<?php echo htmlspecialchars($search); ?>&page=<?php echo $page - 1; ?>" class="btn-prev">Trước</a>
-        <?php endif; ?>
-
-        <?php for($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="?search=<?php echo htmlspecialchars($search); ?>&page=<?php echo $i; ?>" class="btn-page <?php if($i == $page) echo 'active'; ?>"><?php echo $i; ?></a>
-        <?php endfor; ?>
-
-        <?php if($page < $total_pages): ?>
-            <a href="?search=<?php echo htmlspecialchars($search); ?>&page=<?php echo $page + 1; ?>" class="btn-next">Sau</a>
-        <?php endif; ?>
     </div>
 </body>
 </html>
-<?php $conn->close(); ?>

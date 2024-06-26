@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include 'articles_bll.php';
 
 $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : null;
@@ -19,7 +22,7 @@ if ($category_id) {
                 padding: 0;
             }
             .container {
-                max-width: 800px;
+                max-width: 60%;
                 margin: 20px auto;
                 background-color: #fff;
                 padding: 20px;
@@ -36,10 +39,10 @@ if ($category_id) {
                 padding: 0;
                 margin: 0;
             }
-            li {
+            .container li {
                 margin-bottom: 10px;
             }
-            li a {
+            .container li a {
                 display: block;
                 padding: 10px;
                 text-decoration: none;
@@ -48,7 +51,7 @@ if ($category_id) {
                 border-radius: 4px;
                 transition: background-color 0.3s ease;
             }
-            li a:hover {
+            .container li a:hover {
                 background-color: #e0e0e0;
             }
             .back-link {
@@ -63,6 +66,7 @@ if ($category_id) {
         </style>
     </head>
     <body>
+        <?php include "../Home/Header.php";?>
         <div class="container">
             <h1>Danh sách bài viết</h1>
             <ul>
@@ -100,7 +104,7 @@ if ($article_id) {
                     padding: 0;
                 }
                 .container {
-                    max-width: 800px;
+                    max-width: 60%;
                     margin: 20px auto;
                     background-color: #fff;
                     padding: 20px;
@@ -113,6 +117,7 @@ if ($article_id) {
                     margin-bottom: 20px;
                 }
                 .article {
+                    width: 100%;
                     background-color: #fff;
                     padding: 20px;
                     margin-top: 20px;
@@ -145,6 +150,7 @@ if ($article_id) {
             </style>
         </head>
         <body>
+            <?php include "../Home/Header.php";?>
             <div class="container">
                 <div class="article">
                     <h2><?php echo $article['name']; ?></h2>

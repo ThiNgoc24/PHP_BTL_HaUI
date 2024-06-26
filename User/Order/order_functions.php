@@ -1,4 +1,7 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     include_once "../../conn_db.php";
     include_once "../Cart/cart_functions.php";
 
@@ -10,7 +13,7 @@
     function orderSuccess($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method){
         if(insertOrder($orderID, $memberID, $receiver, $address, $phone, $email, $note, $order_method) && insertOrderDetails($orderID, $memberID)){
             // Xóa giỏ hàng sau khi đặt hàng thành công (nếu cần)
-            // clearCart($memberID); Tạm thời khoá để test thanh toán
+            clearCart($memberID); 
             return true;
         }
         return false;

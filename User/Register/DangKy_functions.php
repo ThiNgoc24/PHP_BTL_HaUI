@@ -20,7 +20,8 @@ function isValidEmail($email) {
 }
 
 function registerUser($username, $password, $fullname, $phonenumber, $address, $email) {
-    $password = md5($password);
+    // $password = md5($password);
+    $password = $password;
     $fullname = capitalizeFullName($fullname); // Ensure fullname is capitalized
     $query = "INSERT INTO `member` (`username`, `password`, `fullname`, `phonenumber`, `address`, `email`) VALUES ('$username', '$password', '$fullname', '$phonenumber', '$address', '$email')";
     return executeQuery($query);

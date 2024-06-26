@@ -99,11 +99,12 @@
     </style>
 </head>
 <body>
+    <?php include "../Home/Header.php";?>
     <div class="main_content">
         <h1>Giỏ hàng</h1>
         <?php if (empty($cartItems)): ?>
             <p>Giỏ hàng trống</p>
-            <p class="btn_return"><a href="../Home/Home_page.php">Quay về trang chủ</a></p>
+            <!-- <p class="btn_return"><a href="../Home/Home_page.php">Quay về trang chủ</a></p> -->
         <?php else: ?>
             <table>
                 <tr>
@@ -142,9 +143,9 @@
             </table>
             
             <div class="footer_button">
-                <form method="post">
+                <!-- <form method="post">
                     <button type="submit" name="continue_shopping">Tiếp tục mua hàng</button>
-                </form>
+                </form> -->
                 <form method="post">
                     <button type="submit" name="clear_cart" onclick="return confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?');">Xóa tất cả</button>
                 </form>

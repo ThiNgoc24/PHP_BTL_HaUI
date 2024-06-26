@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include '../Cart/cart_functions.php';
 include "order_functions.php";
-$_SESSION['member_id'] = 10;
 $order_methods = getOrderMethod();
 ?>
 
@@ -21,7 +20,7 @@ $order_methods = getOrderMethod();
         <div class="order-form">
             <form method="post" action="handle_order.php">
                 <h2>Thông tin khách hàng</h2>
-                <input type="hidden" id="memberID" name="memberID" value=<?php echo $_SESSION['member_id'];?>>
+                <input type="hidden" id="memberID" name="memberID" value=<?php echo $_SESSION['id'];?>>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="receiver">Họ và tên:</label>

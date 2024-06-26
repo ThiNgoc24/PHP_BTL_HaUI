@@ -1,7 +1,10 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     require_once "config_vnp.php";
     include "order_functions.php";
-    session_start();
+    
     //Link youtube dạy cách thanh toán giỏ hàng bằng vnpay: https://www.youtube.com/watch?v=RoRVcbhR9vY
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lấy thông tin người nhận và phương thức thanh toán từ form

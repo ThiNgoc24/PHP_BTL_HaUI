@@ -136,6 +136,7 @@ if(isset($_GET['id'])) {
     </style>
 </head>
 <body>
+<?php include "../Home/Header.php";?>
 <div class="product-container">
         <?php if (!empty($message)): ?>
             <p><?php echo htmlspecialchars($message); ?></p>

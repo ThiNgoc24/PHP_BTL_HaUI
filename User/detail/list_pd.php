@@ -181,36 +181,40 @@ $conn->close();
     
 </head>
 <body>
-    <div class="banner1">
-        <h1>Danh sách sản phẩm</h1>
-        <img src="../../images/banner22.jpg" alt="Logo">
-        <div class="back-button">
-            <a href="../Home/Home_page.php">Quay lại</a>
+    <?php include "../Home/Header.php";?>
+    <div class="container">
+        <div class="banner1">
+            <h1>Danh sách sản phẩm</h1>
+            <img src="../../images/banner22.jpg" alt="Logo">
+            <div class="back-button">
+                <!-- <a href="../Home/Home_page.php">Quay lại</a> -->
+            </div>
+        </div>
+
+        <?php foreach ($products as $product): ?>
+            <div class="product">
+                <a href="product_detail.php?id=<?php echo $product['id']; ?>">
+                    <img src="../../images/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                    <h2><?php echo htmlspecialchars($product['name']); ?></h2>
+                    <p class="price"><?php echo number_format($product['price'], 0); ?> VND</p>
+                </a>
+            </div>
+        <?php endforeach; ?>
+
+        <div class="pagination">
+            <?php if($page > 1): ?>
+                <a href="?page=<?php echo $page - 1; ?>">Trước</a>
+            <?php endif; ?>
+
+            <?php for($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?page=<?php echo $i; ?>" class="<?php if($i == $page) echo 'active'; ?>"><?php echo $i; ?></a>
+            <?php endfor; ?>
+
+            <?php if($page < $total_pages): ?>
+                <a href="?page=<?php echo $page + 1; ?>">Sau</a>
+            <?php endif; ?>
         </div>
     </div>
-
-    <?php foreach ($products as $product): ?>
-        <div class="product">
-            <a href="product_detail.php?id=<?php echo $product['id']; ?>">
-                <img src="../../images/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
-                <h2><?php echo htmlspecialchars($product['name']); ?></h2>
-                <p class="price"><?php echo number_format($product['price'], 0); ?> VND</p>
-            </a>
-        </div>
-    <?php endforeach; ?>
-
-    <div class="pagination">
-        <?php if($page > 1): ?>
-            <a href="?page=<?php echo $page - 1; ?>">Trước</a>
-        <?php endif; ?>
-
-        <?php for($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="?page=<?php echo $i; ?>" class="<?php if($i == $page) echo 'active'; ?>"><?php echo $i; ?></a>
-        <?php endfor; ?>
-
-        <?php if($page < $total_pages): ?>
-            <a href="?page=<?php echo $page + 1; ?>">Sau</a>
-        <?php endif; ?>
-    </div>
+    
 </body>
 </html>

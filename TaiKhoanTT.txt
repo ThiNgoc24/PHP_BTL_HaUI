@@ -5,3 +5,14 @@ Tên chủ thẻ	NGUYEN VAN A
 Ngày phát hành	07/15
 Mật khẩu OTP	123456
 
+====Tài khoảng đăng nhập==========
+1. user1 - 16bc9ae9cd9b79843713fc4646981ba9
+2. minh12 - d41d8cd98f00b204e9800998ecf8427e
+
+====Tài khoản Admin=============
+admin - e10adc3949ba59abbe56e057f20f883e
+
+
+====Mail đổi mật khẩu=====
+dinhhlieu22@gmail.com
+=> Tài khoảng có mail này: user - $2y$10$mc2hvh2Yk9cA1S2EWwJaauaMv

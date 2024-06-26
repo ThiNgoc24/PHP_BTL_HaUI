@@ -183,46 +183,47 @@ if (isset($_GET['category_id'])) {
     </style>
 </head>
 <body>
-    <div class="banner1">
-        <h1>Sản phẩm</h1>
-        <img src="../../images/background_show_products.jpg" alt="Logo">
-        <div class="back-button">
-            <a href="../Home/Home_page.php">Quay lại</a>
+    <?php include "../Home/Header.php";?>
+    <div class="container">
+        <div class="banner1">
+            <h1>Sản phẩm</h1>
+            <img src="../../images/background_show_products.jpg" alt="Logo">
+            <div class="back-button">
+                <!-- <a href="../Home/Home_page.php">Quay lại</a> -->
+            </div>
+        </div>
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='product'>";
+                echo "<img src='../../images/" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['name']) . "'>";
+                echo "<h2>" . htmlspecialchars($row['name']) . "</h2>";
+                echo "<p class='price'>" . number_format($row['price'], 0) . " VND </p>";
+                echo "<p>" . htmlspecialchars($row['author_name']) . "</p>";
+            
+                echo "<a href='product_detail.php?cateID={$category_id}&&id=" . $row['id'] . "'>Xem chi tiết</a>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>Không có sản phẩm trong danh mục.</p>";
+        }
+        ?>
+
+        <div class="pagination">
+        
+            <?php if($page > 1): ?>
+                <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $page - 1; ?>">Trước</a>
+            <?php endif; ?>
+
+            <?php for($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $i; ?>" class="<?php if($i == $page) echo 'active'; ?>"><?php echo $i; ?></a>
+            <?php endfor; ?>
+
+            <?php if($page < $total_pages): ?>
+                <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $page + 1; ?>">Sau</a>
+            <?php endif; ?>
         </div>
     </div>
-    <?php
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='product'>";
-            echo "<img src='../../images/" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['name']) . "'>";
-            echo "<h2>" . htmlspecialchars($row['name']) . "</h2>";
-            echo "<p class='price'>" . number_format($row['price'], 0) . " VND </p>";
-            echo "<p>" . htmlspecialchars($row['author_name']) . "</p>";
-           
-            echo "<a href='product_detail.php?cateID={$category_id}&&id=" . $row['id'] . "'>Xem chi tiết</a>";
-            echo "</div>";
-        }
-    } else {
-        echo "<p>Không có sản phẩm trong danh mục.</p>";
-    }
-    ?>
-
-    <div class="pagination">
-    
-        <?php if($page > 1): ?>
-            <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $page - 1; ?>">Trước</a>
-        <?php endif; ?>
-
-        <?php for($i = 1; $i <= $total_pages; $i++): ?>
-            <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $i; ?>" class="<?php if($i == $page) echo 'active'; ?>"><?php echo $i; ?></a>
-        <?php endfor; ?>
-
-        <?php if($page < $total_pages): ?>
-            <a href="?category_id=<?php echo $category_id; ?>&page=<?php echo $page + 1; ?>">Sau</a>
-        <?php endif; ?>
-        
-    </div>
-    
 </body>
 </html>
 
